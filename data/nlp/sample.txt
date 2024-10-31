@@ -1,0 +1,798 @@
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	keywords	['Tokenization','Korean NLP','Hybrid approach']
+Kyubyong  Park 	writes	An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks
+Joohong  Lee 	writes	An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks
+Joohong  Lee 	works for	Pingpong AI Research
+Seongbo  Jang 	writes	An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks
+Seongbo  Jang 	works for	Pingpong AI Research
+Dawoon  Jung 	writes	An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks
+Dawoon  Jung 	works for	Pingpong AI Research
+Kakao  Brain 	writes	An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	belongs to	An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	solves	Determining the optimal tokenization strategy for Korean NLP tasks across various domains.
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	proposes	The study proposes a hybrid tokenization approach combining morphological segmentation and Byte Pair Encoding (BPE) for improved performance.
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	works on	Korean NLP tasks
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	innovates	To solve the problem of finding the best tokenization strategy for Korean NLP tasks, a hybrid approach of morphological segmentation followed by BPE is innovatively proposed, achieving BLEU scores of 39.05 and 36.06 for Ko-En translation, and an F1 score of 81.0 for KorQuAD.
+The study proposes a hybrid tokenization approach combining morphological segmentation and Byte Pair Encoding (BPE) for improved performance.	works on	Korean NLP tasks
+The study proposes a hybrid tokenization approach combining morphological segmentation and Byte Pair Encoding (BPE) for improved performance.	innovates	To solve the problem of finding the best tokenization strategy for Korean NLP tasks, a hybrid approach of morphological segmentation followed by BPE is innovatively proposed, achieving BLEU scores of 39.05 and 36.06 for Ko-En translation, and an F1 score of 81.0 for KorQuAD.
+The study proposes a hybrid tokenization approach combining morphological segmentation and Byte Pair Encoding (BPE) for improved performance.	solves	Determining the optimal tokenization strategy for Korean NLP tasks across various domains.
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	keywords	['BERT','Collaborative Filtering','Explainable AI']
+Reinald Adrian Pugoy 	writes	BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation
+Reinald Adrian Pugoy 	works for	National Cheng Kung University
+Hung-Yu  Kao 	writes	BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation
+Hung-Yu  Kao 	works for	National Cheng Kung University
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	belongs to	BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	solves	Existing review-based recommender systems struggle with static word embeddings and the lack of explainability.
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	proposes	A novel model (BENEFICT) combining BERT, MLP, and MSP for contextual feature extraction, user-item interaction modeling, and explanation generation.
+A novel model (BENEFICT) combining BERT, MLP, and MSP for contextual feature extraction, user-item interaction modeling, and explanation generation.	proposes	BENEFICT
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	proposes	BENEFICT
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	works on	Recommendation and rating prediction
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	innovates	To solve the issues of static word embeddings and lack of explainability in review-based recommender systems, the innovative BENEFICT model is proposed, integrating BERT, MLP, and MSP. The results show consistent outperforming performance (7% gain) and improved explanation quality (QWK 0.2019 and 0.47).
+A novel model (BENEFICT) combining BERT, MLP, and MSP for contextual feature extraction, user-item interaction modeling, and explanation generation.	works on	Recommendation and rating prediction
+A novel model (BENEFICT) combining BERT, MLP, and MSP for contextual feature extraction, user-item interaction modeling, and explanation generation.	innovates	To solve the issues of static word embeddings and lack of explainability in review-based recommender systems, the innovative BENEFICT model is proposed, integrating BERT, MLP, and MSP. The results show consistent outperforming performance (7% gain) and improved explanation quality (QWK 0.2019 and 0.47).
+A novel model (BENEFICT) combining BERT, MLP, and MSP for contextual feature extraction, user-item interaction modeling, and explanation generation.	solves	Existing review-based recommender systems struggle with static word embeddings and the lack of explainability.
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	keywords	['Simultaneous Neural Machine Translation', 'Prefix Translation', 'Stopping Criterion']
+Yun  Chen 	writes	A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation
+Yun  Chen 	works for	Shanghai University of Finance and Economics
+Liangyou  Li 	writes	A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation
+Liangyou  Li 	works for	Huawei Noah's Ark Lab
+Xin  Jiang 	writes	A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation
+Xin  Jiang 	works for	Huawei Noah's Ark Lab
+Xiao  Chen 	writes	A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation
+Xiao  Chen 	works for	Huawei Noah's Ark Lab
+Qun  Liu 	writes	A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation
+Qun  Liu 	works for	Huawei Noah's Ark Lab
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	belongs to	A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	solves	Difficulty in performing high-quality translation in real time due to syntactic differences and simultaneity requirements.
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	proposes	A general framework is proposed that includes prefix translation with a consecutive NMT model and a stopping criterion to balance translation quality and latency.
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	works on	Simultaneous neural machine translation
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	innovates	To solve the difficulty in performing high-quality translation in real time due to syntactic differences and simultaneity requirements, the proposed framework with prefix translation and a stopping criterion is innovatively introduced, achieving balanced translation quality and latency with reasonable BLEU scores.
+A general framework is proposed that includes prefix translation with a consecutive NMT model and a stopping criterion to balance translation quality and latency.	works on	Simultaneous neural machine translation
+A general framework is proposed that includes prefix translation with a consecutive NMT model and a stopping criterion to balance translation quality and latency.	innovates	To solve the difficulty in performing high-quality translation in real time due to syntactic differences and simultaneity requirements, the proposed framework with prefix translation and a stopping criterion is innovatively introduced, achieving balanced translation quality and latency with reasonable BLEU scores.
+A general framework is proposed that includes prefix translation with a consecutive NMT model and a stopping criterion to balance translation quality and latency.	solves	Difficulty in performing high-quality translation in real time due to syntactic differences and simultaneity requirements.
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	keywords	['Chinese-Japanese Pre-trained Model','Cross-lingual Language Model','Unihan Database']
+Canwen  Xu 	writes	UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database
+Canwen  Xu 	works for	University of California
+Tao  Ge 	writes	UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database
+Tao  Ge 	works for	Microsoft Research Asia
+Chenliang  Li 	writes	UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database
+Chenliang  Li 	works for	Wuhan University
+Furu  Wei 	writes	UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database
+Furu  Wei 	works for	Microsoft Research Asia
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	belongs to	UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	solves	Existing cross-lingual models underutilize the shared morphological features between Chinese and Japanese characters, affecting their performance on NLP tasks.
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	proposes	UnihanLM, a self-supervised pre-trained masked language model using a two-stage coarse-to-fine training approach leveraging the Unihan database.
+UnihanLM, a self-supervised pre-trained masked language model using a two-stage coarse-to-fine training approach leveraging the Unihan database.	proposes	UnihanLM
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	proposes	UnihanLM
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	works on	Cross-lingual Chinese-Japanese NLP tasks
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	innovates	To solve the underutilization of shared morphological features in Chinese and Japanese characters in cross-lingual models, the UnihanLM is innovatively proposed. This model leverages the Unihan database and a two-stage training approach, resulting in substantial improvements in unsupervised machine translation tasks, such as achieving a BLEU score of 44.59 on the ASPEC-JC dataset.
+UnihanLM, a self-supervised pre-trained masked language model using a two-stage coarse-to-fine training approach leveraging the Unihan database.	works on	Cross-lingual Chinese-Japanese NLP tasks
+UnihanLM, a self-supervised pre-trained masked language model using a two-stage coarse-to-fine training approach leveraging the Unihan database.	innovates	To solve the underutilization of shared morphological features in Chinese and Japanese characters in cross-lingual models, the UnihanLM is innovatively proposed. This model leverages the Unihan database and a two-stage training approach, resulting in substantial improvements in unsupervised machine translation tasks, such as achieving a BLEU score of 44.59 on the ASPEC-JC dataset.
+UnihanLM, a self-supervised pre-trained masked language model using a two-stage coarse-to-fine training approach leveraging the Unihan database.	solves	Existing cross-lingual models underutilize the shared morphological features between Chinese and Japanese characters, affecting their performance on NLP tasks.
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	keywords	['Label Smoothing', 'Neural Machine Translation', 'Generalization']
+Yingbo  Gao 	writes	Towards a Better Understanding of Label Smoothing in Neural Machine Translation
+Yingbo  Gao 	works for	Human Language Technology and Pattern Recognition Group Computer Science Department
+Weiyue  Wang 	writes	Towards a Better Understanding of Label Smoothing in Neural Machine Translation
+Weiyue  Wang 	works for	Human Language Technology and Pattern Recognition Group Computer Science Department
+Christian  Herold 	writes	Towards a Better Understanding of Label Smoothing in Neural Machine Translation
+Christian  Herold 	works for	Human Language Technology and Pattern Recognition Group Computer Science Department
+Zijian  Yang 	writes	Towards a Better Understanding of Label Smoothing in Neural Machine Translation
+Zijian  Yang 	works for	Human Language Technology and Pattern Recognition Group Computer Science Department
+Hermann  Ney 	writes	Towards a Better Understanding of Label Smoothing in Neural Machine Translation
+Hermann  Ney 	works for	Human Language Technology and Pattern Recognition Group Computer Science Department
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	Towards a Better Understanding of Label Smoothing in Neural Machine Translation
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	belongs to	Towards a Better Understanding of Label Smoothing in Neural Machine Translation
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	solves	In neural machine translation, current label smoothing methods are heuristic and lack a clear understanding of their optimization and practical application.
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	proposes	The paper introduces a generalized formula and theoretical solution for label smoothing, combined with empirical studies on varying tokens, probability masses, and prior distributions.
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	works on	neural machine translation
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	innovates	To solve the heuristic nature and unclear optimization of current label smoothing methods in neural machine translation, an innovative generalized formula and theoretical solution combined with empirical studies are proposed, exploring various hyperparameters for optimal performance.
+The paper introduces a generalized formula and theoretical solution for label smoothing, combined with empirical studies on varying tokens, probability masses, and prior distributions.	works on	neural machine translation
+The paper introduces a generalized formula and theoretical solution for label smoothing, combined with empirical studies on varying tokens, probability masses, and prior distributions.	innovates	To solve the heuristic nature and unclear optimization of current label smoothing methods in neural machine translation, an innovative generalized formula and theoretical solution combined with empirical studies are proposed, exploring various hyperparameters for optimal performance.
+The paper introduces a generalized formula and theoretical solution for label smoothing, combined with empirical studies on varying tokens, probability masses, and prior distributions.	solves	In neural machine translation, current label smoothing methods are heuristic and lack a clear understanding of their optimization and practical application.
+AMR Quality Rating with a Lightweight CNN	keywords	['AMR Quality Estimation','Convolutional Neural Network','Natural Language Processing']
+Juri  Opitz 	writes	AMR Quality Rating with a Lightweight CNN
+Juri  Opitz 	works for	Dept. of Computational Linguistics
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	AMR Quality Rating with a Lightweight CNN
+AMR Quality Rating with a Lightweight CNN	belongs to	AMR Quality Rating with a Lightweight CNN
+AMR Quality Rating with a Lightweight CNN	solves	Existing methods struggle to efficiently and accurately rate AMR quality without using costly gold references.
+AMR Quality Rating with a Lightweight CNN	proposes	A lightweight convolutional neural network (CNN) that transfers AMR graphs to the domain of images to estimate their quality.
+A lightweight convolutional neural network (CNN) that transfers AMR graphs to the domain of images to estimate their quality.	proposes	Lightweight CNN
+AMR Quality Rating with a Lightweight CNN	proposes	Lightweight CNN
+AMR Quality Rating with a Lightweight CNN	works on	Rating AMR graph quality
+AMR Quality Rating with a Lightweight CNN	innovates	To solve the inefficiency in accurately rating AMR quality without gold references, the paper innovatively proposes a lightweight CNN that rates AMR graphs. The method achieves improved accuracy with Pearson\'s ρ of 0.695, Smatch precision of 0.696, and Smatch recall of 0.719.
+A lightweight convolutional neural network (CNN) that transfers AMR graphs to the domain of images to estimate their quality.	works on	Rating AMR graph quality
+A lightweight convolutional neural network (CNN) that transfers AMR graphs to the domain of images to estimate their quality.	innovates	To solve the inefficiency in accurately rating AMR quality without gold references, the paper innovatively proposes a lightweight CNN that rates AMR graphs. The method achieves improved accuracy with Pearson\'s ρ of 0.695, Smatch precision of 0.696, and Smatch recall of 0.719.
+A lightweight convolutional neural network (CNN) that transfers AMR graphs to the domain of images to estimate their quality.	solves	Existing methods struggle to efficiently and accurately rate AMR quality without using costly gold references.
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	keywords	['multi-modal emotion recognition', 'emotion embeddings', 'cross-modality transfer']
+Wenliang  Dai 	writes	Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition
+Wenliang  Dai 	works for	Center for Artificial Intelligence Research (CAiRE) Department of Electronic and Computer Engineering
+Zihan  Liu 	writes	Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition
+Zihan  Liu 	works for	Center for Artificial Intelligence Research (CAiRE) Department of Electronic and Computer Engineering
+Tiezheng  Yu 	writes	Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition
+Tiezheng  Yu 	works for	Center for Artificial Intelligence Research (CAiRE) Department of Electronic and Computer Engineering
+Pascale  Fung 	writes	Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition
+Pascale  Fung 	works for	Center for Artificial Intelligence Research (CAiRE) Department of Electronic and Computer Engineering
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	belongs to	Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	solves	Current models fail to exploit emotion relationships fully and struggle with low-resource scenarios, especially for unseen emotions.
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	proposes	Modality-transferable model with cross-modality emotion embeddings
+Modality-transferable model with cross-modality emotion embeddings	proposes	Modality-transferable model
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	proposes	Modality-transferable model
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	works on	Multi-modal emotion recognition
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	innovates	To solve the issues of sub-optimal performance due to under-utilized emotion relationships and challenges with low-resource emotions in emotion recognition tasks, the modality-transferable model with emotion embeddings is innovatively proposed and achieves state-of-the-art results, particularly demonstrating its effectiveness in zero-shot and few-shot learning scenarios.
+Modality-transferable model with cross-modality emotion embeddings	works on	Multi-modal emotion recognition
+Modality-transferable model with cross-modality emotion embeddings	innovates	To solve the issues of sub-optimal performance due to under-utilized emotion relationships and challenges with low-resource emotions in emotion recognition tasks, the modality-transferable model with emotion embeddings is innovatively proposed and achieves state-of-the-art results, particularly demonstrating its effectiveness in zero-shot and few-shot learning scenarios.
+Modality-transferable model with cross-modality emotion embeddings	solves	Current models fail to exploit emotion relationships fully and struggle with low-resource scenarios, especially for unseen emotions.
+An Exploratory Study on Multilingual Quality Estimation	keywords	['Multilingual Quality Estimation','Machine Translation','Zero-Shot Learning']
+Shuo  Sun 	writes	An Exploratory Study on Multilingual Quality Estimation
+Shuo  Sun 	works for	Johns Hopkins University
+Marina  Fomicheva 	writes	An Exploratory Study on Multilingual Quality Estimation
+Marina  Fomicheva 	works for	University of Sheffield
+Frédéric  Blain 	writes	An Exploratory Study on Multilingual Quality Estimation
+Frédéric  Blain 	works for	University of Sheffield
+Vishrav  Chaudhary 	writes	An Exploratory Study on Multilingual Quality Estimation
+Vishrav  Chaudhary 	works for	Facebook AI
+Ahmed  El-Kishky 	writes	An Exploratory Study on Multilingual Quality Estimation
+Ahmed  El-Kishky 	works for	Facebook AI
+Adithya  Renduchintala 	writes	An Exploratory Study on Multilingual Quality Estimation
+Adithya  Renduchintala 	works for	Facebook AI
+Francisco  Guzmán 	writes	An Exploratory Study on Multilingual Quality Estimation
+Francisco  Guzmán 	works for	Facebook AI
+Lucia  Specia 	writes	An Exploratory Study on Multilingual Quality Estimation
+Lucia  Specia 	works for	University of Sheffield
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	An Exploratory Study on Multilingual Quality Estimation
+An Exploratory Study on Multilingual Quality Estimation	belongs to	An Exploratory Study on Multilingual Quality Estimation
+An Exploratory Study on Multilingual Quality Estimation	solves	Current methods require language-specific labelled data, which limits evaluation and application in multilingual and low-resource settings.
+An Exploratory Study on Multilingual Quality Estimation	proposes	The paper introduces multilingual and zero-shot QE models using pre-trained contextual representations and explores multi-task learning strategies.
+The paper introduces multilingual and zero-shot QE models using pre-trained contextual representations and explores multi-task learning strategies.	proposes	Baseline QE Model (BASE)
+An Exploratory Study on Multilingual Quality Estimation	proposes	Baseline QE Model (BASE)
+An Exploratory Study on Multilingual Quality Estimation	works on	Quality Estimation for Machine Translation
+An Exploratory Study on Multilingual Quality Estimation	innovates	To solve the problem of requiring language-specific labelled data in quality estimation for machine translation, the innovative multilingual and zero-shot QE models are proposed, achieving a Pearson correlation of up to 0.79 on the WMT 2020 QE Task 1 dataset.
+The paper introduces multilingual and zero-shot QE models using pre-trained contextual representations and explores multi-task learning strategies.	works on	Quality Estimation for Machine Translation
+The paper introduces multilingual and zero-shot QE models using pre-trained contextual representations and explores multi-task learning strategies.	innovates	To solve the problem of requiring language-specific labelled data in quality estimation for machine translation, the innovative multilingual and zero-shot QE models are proposed, achieving a Pearson correlation of up to 0.79 on the WMT 2020 QE Task 1 dataset.
+The paper introduces multilingual and zero-shot QE models using pre-trained contextual representations and explores multi-task learning strategies.	solves	Current methods require language-specific labelled data, which limits evaluation and application in multilingual and low-resource settings.
+Self-Supervised Learning for Pairwise Data Refinement	keywords	['Self-supervised Learning', 'Data Refinement', 'Machine Translation']
+Gustavo Hernández Ábrego 	writes	Self-Supervised Learning for Pairwise Data Refinement
+Gustavo Hernández Ábrego 	works for	Google Research
+Bowen  Liang 	writes	Self-Supervised Learning for Pairwise Data Refinement
+Bowen  Liang 	works for	Google Research
+Wei  Wang 	writes	Self-Supervised Learning for Pairwise Data Refinement
+Wei  Wang 	works for	Google Research
+Zarana  Parekh 	writes	Self-Supervised Learning for Pairwise Data Refinement
+Zarana  Parekh 	works for	Google Research
+Yinfei  Yang 	writes	Self-Supervised Learning for Pairwise Data Refinement
+Yinfei  Yang 	works for	Google Research
+Yunhsuan  Sung 	writes	Self-Supervised Learning for Pairwise Data Refinement
+Yunhsuan  Sung 	works for	Google Research
+Proceedings of the 1st Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 10th International Joint Conference on Natural Language Processing	publishs	Self-Supervised Learning for Pairwise Data Refinement
+Self-Supervised Learning for Pairwise Data Refinement	belongs to	Self-Supervised Learning for Pairwise Data Refinement
+Self-Supervised Learning for Pairwise Data Refinement	solves	Existing noisy pairwise datasets, like parallel texts mined from the internet, require a refined subset to improve learning from weakly supervised signals.
+Self-Supervised Learning for Pairwise Data Refinement	proposes	Two self-supervised iterative filtering methods employing dual-encoder models are proposed to denoise and refine datasets by selecting useful subsets without external annotations.
+Two self-supervised iterative filtering methods employing dual-encoder models are proposed to denoise and refine datasets by selecting useful subsets without external annotations.	proposes	Dual-Encoder Models and Transformer-Big
+Self-Supervised Learning for Pairwise Data Refinement	proposes	Dual-Encoder Models and Transformer-Big
+Self-Supervised Learning for Pairwise Data Refinement	works on	Data Refinement for Machine Translation
+Self-Supervised Learning for Pairwise Data Refinement	innovates	To solve the issue of refining noisy pairwise datasets for training from weakly supervised signals, the proposed self-supervised iterative filtering methods effectively produce competitive performance without the need for annotations, achieving significant improvements in parallel text mining tasks.
+Two self-supervised iterative filtering methods employing dual-encoder models are proposed to denoise and refine datasets by selecting useful subsets without external annotations.	works on	Data Refinement for Machine Translation
+Two self-supervised iterative filtering methods employing dual-encoder models are proposed to denoise and refine datasets by selecting useful subsets without external annotations.	innovates	To solve the issue of refining noisy pairwise datasets for training from weakly supervised signals, the proposed self-supervised iterative filtering methods effectively produce competitive performance without the need for annotations, achieving significant improvements in parallel text mining tasks.
+Two self-supervised iterative filtering methods employing dual-encoder models are proposed to denoise and refine datasets by selecting useful subsets without external annotations.	solves	Existing noisy pairwise datasets, like parallel texts mined from the internet, require a refined subset to improve learning from weakly supervised signals.
+Multilingual Universal Sentence Encoder for Semantic Retrieval	keywords	['Multilingual Sentence Embeddings','Semantic Retrieval','Cross-Lingual Tasks']
+Yinfei  Yang 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Yinfei  Yang 	works for	𝑎 Google AI Mountain View
+Daniel Cer 𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Daniel Cer 𝑎 	works for	𝑎 Google AI Mountain View
+Ahmad  Amin 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Ahmad  Amin 	works for	𝑎 Google AI Mountain View
+Mandy Guo 𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Mandy Guo 𝑎 	works for	𝑎 Google AI Mountain View
+Jax  𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Jax  𝑎 	works for	𝑎 Google AI Mountain View
+𝑎  Law 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+𝑎  Law 	works for	𝑎 Google AI Mountain View
+Noah Constant 𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Noah Constant 𝑎 	works for	𝑎 Google AI Mountain View
+Gustavo  Hernandez 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Gustavo  Hernandez 	works for	𝑎 Google AI Mountain View
+Abrego  𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Abrego  𝑎 	works for	𝑎 Google AI Mountain View
+Steve Yuan 𝑏 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Steve Yuan 𝑏 	works for	𝑎 Google AI Mountain View
+Chris Tar 𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Chris Tar 𝑎 	works for	𝑎 Google AI Mountain View
+Yun-Hsuan Sung 𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Yun-Hsuan Sung 𝑎 	works for	𝑎 Google AI Mountain View
+Brian Strope 𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Brian Strope 𝑎 	works for	𝑎 Google AI Mountain View
+Ray Kurzweil 𝑎 	writes	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Ray Kurzweil 𝑎 	works for	𝑎 Google AI Mountain View
+Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics: System Demonstrations	publishs	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Multilingual Universal Sentence Encoder for Semantic Retrieval	belongs to	Multilingual Universal Sentence Encoder for Semantic Retrieval
+Multilingual Universal Sentence Encoder for Semantic Retrieval	solves	Existing methods for multilingual sentence embeddings do not achieve optimal performance across a variety of semantic retrieval and related tasks.
+Multilingual Universal Sentence Encoder for Semantic Retrieval	proposes	The study proposes multilingual sentence embedding models based on a multi-task trained dual-encoder learning tied cross-lingual representations through translation bridge tasks.
+The study proposes multilingual sentence embedding models based on a multi-task trained dual-encoder learning tied cross-lingual representations through translation bridge tasks.	proposes	Multilingual Sentence Encoder (USE)
+Multilingual Universal Sentence Encoder for Semantic Retrieval	proposes	Multilingual Sentence Encoder (USE)
+Multilingual Universal Sentence Encoder for Semantic Retrieval	works on	Semantic Retrieval
+Multilingual Universal Sentence Encoder for Semantic Retrieval	innovates	To solve the suboptimal performance existing in semantic retrieval, the multilingual sentence embedding models using a multi-task trained dual-encoder are innovatively proposed and the state-of-the-art results on monolingual and cross-lingual semantic retrieval are obtained.
+The study proposes multilingual sentence embedding models based on a multi-task trained dual-encoder learning tied cross-lingual representations through translation bridge tasks.	works on	Semantic Retrieval
+The study proposes multilingual sentence embedding models based on a multi-task trained dual-encoder learning tied cross-lingual representations through translation bridge tasks.	innovates	To solve the suboptimal performance existing in semantic retrieval, the multilingual sentence embedding models using a multi-task trained dual-encoder are innovatively proposed and the state-of-the-art results on monolingual and cross-lingual semantic retrieval are obtained.
+The study proposes multilingual sentence embedding models based on a multi-task trained dual-encoder learning tied cross-lingual representations through translation bridge tasks.	solves	Existing methods for multilingual sentence embeddings do not achieve optimal performance across a variety of semantic retrieval and related tasks.
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	keywords	['AMR-to-Text Generation','Pre-trained Language Model','Cycle Consistency']
+Manuel  Mager 	writes	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+Manuel  Mager 	works for	Institute for Natural Language Processing
+Ramón  Fernandez 	writes	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+Ramón  Fernandez 	works for	IBM Research AI
+Tahira  Naseem 	writes	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+Tahira  Naseem 	works for	IBM Research AI
+Md Arafat Sultan 	writes	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+Md Arafat Sultan 	works for	IBM Research AI
+Young-Suk  Lee 	writes	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+Young-Suk  Lee 	works for	IBM Research AI
+Radu  Florian 	writes	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+Radu  Florian 	works for	IBM Research AI
+Salim  Roukos 	writes	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+Salim  Roukos 	works for	IBM Research AI
+Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics	publishs	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	belongs to	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	solves	Existing methods for AMR-to-text generation often rely solely on AMR-annotated data and do not leverage strong pre-trained language models effectively.
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	proposes	A fine-tuned GPT-2 model combined with cycle consistency-based re-scoring approach is proposed to generate text directly from AMR graphs.
+A fine-tuned GPT-2 model combined with cycle consistency-based re-scoring approach is proposed to generate text directly from AMR graphs.	proposes	GPT-2 with cycle consistency-based re-scoring
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	proposes	GPT-2 with cycle consistency-based re-scoring
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	works on	AMR-to-text generation
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	innovates	To solve the reliance on AMR-annotated data alone in AMR-to-text generation tasks, the innovative fine-tuned GPT-2 with cycle consistency-based re-scoring method is proposed and achieves results of 32.32 BLEU and 62.79 chrF++ on the LDC2017T10 dataset.
+A fine-tuned GPT-2 model combined with cycle consistency-based re-scoring approach is proposed to generate text directly from AMR graphs.	works on	AMR-to-text generation
+A fine-tuned GPT-2 model combined with cycle consistency-based re-scoring approach is proposed to generate text directly from AMR graphs.	innovates	To solve the reliance on AMR-annotated data alone in AMR-to-text generation tasks, the innovative fine-tuned GPT-2 with cycle consistency-based re-scoring method is proposed and achieves results of 32.32 BLEU and 62.79 chrF++ on the LDC2017T10 dataset.
+A fine-tuned GPT-2 model combined with cycle consistency-based re-scoring approach is proposed to generate text directly from AMR graphs.	solves	Existing methods for AMR-to-text generation often rely solely on AMR-annotated data and do not leverage strong pre-trained language models effectively.
+Universal Decompositional Semantic Parsing	keywords	['Transductive Parsing','Universal Decompositional Semantics','Natural Language Understanding']
+Elias  Stengel-Eskin 	writes	Universal Decompositional Semantic Parsing
+Elias  Stengel-Eskin 	works for	Johns Hopkins University
+Aaron Steven White 	writes	Universal Decompositional Semantic Parsing
+Aaron Steven White 	works for	University of Rochester
+Sheng  Zhang 	writes	Universal Decompositional Semantic Parsing
+Sheng  Zhang 	works for	Johns Hopkins University
+Benjamin  Van Durme 	writes	Universal Decompositional Semantic Parsing
+Benjamin  Van Durme 	works for	Johns Hopkins University
+Joakim  Nivre 	writes	Universal Decompositional Semantic Parsing
+Joakim  Nivre 	works for	Universal
+Zeljko  Agic 	writes	Universal Decompositional Semantic Parsing
+Zeljko  Agic 	works for	Universal
+Maria Jesus Aranzabe 	writes	Universal Decompositional Semantic Parsing
+Maria Jesus Aranzabe 	works for	Universal
+Masayuki  Asahara 	writes	Universal Decompositional Semantic Parsing
+Masayuki  Asahara 	works for	Universal
+Aitziber  Atutxa 	writes	Universal Decompositional Semantic Parsing
+Aitziber  Atutxa 	works for	Universal
+Miguel  Balles- Teros 	writes	Universal Decompositional Semantic Parsing
+Miguel  Balles- Teros 	works for	Universal
+John  Bauer 	writes	Universal Decompositional Semantic Parsing
+John  Bauer 	works for	Universal
+Kepa  Bengoetxea 	writes	Universal Decompositional Semantic Parsing
+Kepa  Bengoetxea 	works for	Universal
+Ahmad  Riyaz 	writes	Universal Decompositional Semantic Parsing
+Ahmad  Riyaz 	works for	Universal
+Cristina  Bhat 	writes	Universal Decompositional Semantic Parsing
+Cristina  Bhat 	works for	Universal
+Sam  Bosco 	writes	Universal Decompositional Semantic Parsing
+Sam  Bosco 	works for	Universal
+Giuseppe G A Bowman 	writes	Universal Decompositional Semantic Parsing
+Giuseppe G A Bowman 	works for	Universal
+Miriam  Celano 	writes	Universal Decompositional Semantic Parsing
+Miriam  Celano 	works for	Universal
+Marie-Catherine  Connor 	writes	Universal Decompositional Semantic Parsing
+Marie-Catherine  Connor 	works for	Universal
+Arantza  De Marn- Effe 	writes	Universal Decompositional Semantic Parsing
+Arantza  De Marn- Effe 	works for	Universal
+Kaja  Diaz De Ilarraza 	writes	Universal Decompositional Semantic Parsing
+Kaja  Diaz De Ilarraza 	works for	Universal
+Timothy  Dobrovoljc 	writes	Universal Decompositional Semantic Parsing
+Timothy  Dobrovoljc 	works for	Universal
+Tomaž  Dozat 	writes	Universal Decompositional Semantic Parsing
+Tomaž  Dozat 	works for	Universal
+Richárd  Erjavec 	writes	Universal Decompositional Semantic Parsing
+Richárd  Erjavec 	works for	Universal
+Jen- Nifer  Farkas 	writes	Universal Decompositional Semantic Parsing
+Jen- Nifer  Farkas 	works for	Universal
+Daniel  Foster 	writes	Universal Decompositional Semantic Parsing
+Daniel  Foster 	works for	Universal
+Filip  Galbraith 	writes	Universal Decompositional Semantic Parsing
+Filip  Galbraith 	works for	Universal
+Iakes  Ginter 	writes	Universal Decompositional Semantic Parsing
+Iakes  Ginter 	works for	Universal
+Koldo  Goenaga 	writes	Universal Decompositional Semantic Parsing
+Koldo  Goenaga 	works for	Universal
+Yoav  Gojenola 	writes	Universal Decompositional Semantic Parsing
+Yoav  Gojenola 	works for	Universal
+Berta  Goldberg 	writes	Universal Decompositional Semantic Parsing
+Berta  Goldberg 	works for	Universal
+Bruno  Gonzales 	writes	Universal Decompositional Semantic Parsing
+Bruno  Gonzales 	works for	Universal
+Jan  Guillaume 	writes	Universal Decompositional Semantic Parsing
+Jan  Guillaume 	works for	Universal
+Dag  Hajič 	writes	Universal Decompositional Semantic Parsing
+Dag  Hajič 	works for	Universal
+Radu  Haug 	writes	Universal Decompositional Semantic Parsing
+Radu  Haug 	works for	Universal
+Elena  Ion 	writes	Universal Decompositional Semantic Parsing
+Elena  Ion 	works for	Universal
+Anders  Irimia 	writes	Universal Decompositional Semantic Parsing
+Anders  Irimia 	works for	Universal
+Hiroshi  Johannsen 	writes	Universal Decompositional Semantic Parsing
+Hiroshi  Johannsen 	works for	Universal
+Jenna  Kanayama 	writes	Universal Decompositional Semantic Parsing
+Jenna  Kanayama 	works for	Universal
+Simon  Kanerva 	writes	Universal Decompositional Semantic Parsing
+Simon  Kanerva 	works for	Universal
+Veronika  Krek 	writes	Universal Decompositional Semantic Parsing
+Veronika  Krek 	works for	Universal
+Alessandro  Laippala 	writes	Universal Decompositional Semantic Parsing
+Alessandro  Laippala 	works for	Universal
+Nikola  Lenci 	writes	Universal Decompositional Semantic Parsing
+Nikola  Lenci 	works for	Universal
+Teresa  Ljubešić 	writes	Universal Decompositional Semantic Parsing
+Teresa  Ljubešić 	works for	Universal
+Christopher  Lynn 	writes	Universal Decompositional Semantic Parsing
+Christopher  Lynn 	works for	Universal
+Cȃtȃlina  Manning 	writes	Universal Decompositional Semantic Parsing
+Cȃtȃlina  Manning 	works for	Universal
+David  Mȃrȃnduc 	writes	Universal Decompositional Semantic Parsing
+David  Mȃrȃnduc 	works for	Universal
+Martínez  Mareček 	writes	Universal Decompositional Semantic Parsing
+Martínez  Mareček 	works for	Universal
+Jan  Alonso 	writes	Universal Decompositional Semantic Parsing
+Jan  Alonso 	works for	Universal
+Yuji  Mašek 	writes	Universal Decompositional Semantic Parsing
+Yuji  Mašek 	works for	Universal
+Ryan  Matsumoto 	writes	Universal Decompositional Semantic Parsing
+Ryan  Matsumoto 	works for	Universal
+Anna  Mcdonald 	writes	Universal Decompositional Semantic Parsing
+Anna  Mcdonald 	works for	Universal
+Verginica  Missilä 	writes	Universal Decompositional Semantic Parsing
+Verginica  Missilä 	works for	Universal
+Yusuke  Mititelu 	writes	Universal Decompositional Semantic Parsing
+Yusuke  Mititelu 	works for	Universal
+Simon- Montemagni  Miyao 	writes	Universal Decompositional Semantic Parsing
+Simon- Montemagni  Miyao 	works for	Universal
+Shunsuke  Mori 	writes	Universal Decompositional Semantic Parsing
+Shunsuke  Mori 	works for	Universal
+Hanna  Nurmi 	writes	Universal Decompositional Semantic Parsing
+Hanna  Nurmi 	works for	Universal
+Petya  Osenova 	writes	Universal Decompositional Semantic Parsing
+Petya  Osenova 	works for	Universal
+Lilja  Øvrelid 	writes	Universal Decompositional Semantic Parsing
+Lilja  Øvrelid 	works for	Universal
+Elena  Pascual 	writes	Universal Decompositional Semantic Parsing
+Elena  Pascual 	works for	Universal
+Marco  Passarotti 	writes	Universal Decompositional Semantic Parsing
+Marco  Passarotti 	works for	Universal
+Cenel-Augusto  Perez 	writes	Universal Decompositional Semantic Parsing
+Cenel-Augusto  Perez 	works for	Universal
+Slav  Petrov 	writes	Universal Decompositional Semantic Parsing
+Slav  Petrov 	works for	Universal
+Jussi  Piitulainen 	writes	Universal Decompositional Semantic Parsing
+Jussi  Piitulainen 	works for	Universal
+Barbara  Plank 	writes	Universal Decompositional Semantic Parsing
+Barbara  Plank 	works for	Universal
+Martin  Popel 	writes	Universal Decompositional Semantic Parsing
+Martin  Popel 	works for	Universal
+Sampo  Pyysalo 	writes	Universal Decompositional Semantic Parsing
+Sampo  Pyysalo 	works for	Universal
+Loganathan  Ramasamy 	writes	Universal Decompositional Semantic Parsing
+Loganathan  Ramasamy 	works for	Universal
+Rudolf  Rosa 	writes	Universal Decompositional Semantic Parsing
+Rudolf  Rosa 	works for	Universal
+Shadi  Saleh 	writes	Universal Decompositional Semantic Parsing
+Shadi  Saleh 	works for	Universal
+Sebastian  Schuster 	writes	Universal Decompositional Semantic Parsing
+Sebastian  Schuster 	works for	Universal
+Wolf- Gang  Seeker 	writes	Universal Decompositional Semantic Parsing
+Wolf- Gang  Seeker 	works for	Universal
+Mojgan  Seraji 	writes	Universal Decompositional Semantic Parsing
+Mojgan  Seraji 	works for	Universal
+Natalia  Silveira 	writes	Universal Decompositional Semantic Parsing
+Natalia  Silveira 	works for	Universal
+Maria  Simi 	writes	Universal Decompositional Semantic Parsing
+Maria  Simi 	works for	Universal
+Radu  Simionescu 	writes	Universal Decompositional Semantic Parsing
+Radu  Simionescu 	works for	Universal
+Katalin  Simkó 	writes	Universal Decompositional Semantic Parsing
+Katalin  Simkó 	works for	Universal
+Kiril  Simov 	writes	Universal Decompositional Semantic Parsing
+Kiril  Simov 	works for	Universal
+Aaron  Smith 	writes	Universal Decompositional Semantic Parsing
+Aaron  Smith 	works for	Universal
+Jan  Štěpánek 	writes	Universal Decompositional Semantic Parsing
+Jan  Štěpánek 	works for	Universal
+Alane  Suhr 	writes	Universal Decompositional Semantic Parsing
+Alane  Suhr 	works for	Universal
+Zsolt  Szántó 	writes	Universal Decompositional Semantic Parsing
+Zsolt  Szántó 	works for	Universal
+Takaaki  Tanaka 	writes	Universal Decompositional Semantic Parsing
+Takaaki  Tanaka 	works for	Universal
+Reut  Tsarfaty 	writes	Universal Decompositional Semantic Parsing
+Reut  Tsarfaty 	works for	Universal
+Sumire  Uematsu 	writes	Universal Decompositional Semantic Parsing
+Sumire  Uematsu 	works for	Universal
+Larraitz  Uria 	writes	Universal Decompositional Semantic Parsing
+Larraitz  Uria 	works for	Universal
+Viktor  Varga 	writes	Universal Decompositional Semantic Parsing
+Viktor  Varga 	works for	Universal
+Veronika  Vincze 	writes	Universal Decompositional Semantic Parsing
+Veronika  Vincze 	works for	Universal
+Zdeněk  Žabokrtský 	writes	Universal Decompositional Semantic Parsing
+Zdeněk  Žabokrtský 	works for	Universal
+Daniel  Zeman 	writes	Universal Decompositional Semantic Parsing
+Daniel  Zeman 	works for	Universal
+Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics	publishs	Universal Decompositional Semantic Parsing
+Universal Decompositional Semantic Parsing	belongs to	Universal Decompositional Semantic Parsing
+Universal Decompositional Semantic Parsing	solves	Existing categorical semantic formalisms struggle with non-prototypical instances and face difficulties in handling changing label ontologies and new datasets.
+Universal Decompositional Semantic Parsing	proposes	A novel transductive sequence-to-graph parsing model that jointly learns to map natural language uttearcnes to UDS graph structures and predict decompositional semantic attribute scores.
+A novel transductive sequence-to-graph parsing model that jointly learns to map natural language uttearcnes to UDS graph structures and predict decompositional semantic attribute scores.	proposes	Transductive sequence-to-graph parsing model
+Universal Decompositional Semantic Parsing	proposes	Transductive sequence-to-graph parsing model
+Universal Decompositional Semantic Parsing	works on	Parsing natural language into Universal Decompositional Semantics
+Universal Decompositional Semantic Parsing	innovates	To solve the problem of brittleness in existing categorical semantic formalisms, a transductive sequence-to-graph parsing model is innovatively proposed to jointly map natural language utterances to UDS graph structures and predict decompositional semantic attributes, achieving 84.19 in F1 Score on the UDS1.0 dataset.
+A novel transductive sequence-to-graph parsing model that jointly learns to map natural language uttearcnes to UDS graph structures and predict decompositional semantic attribute scores.	works on	Parsing natural language into Universal Decompositional Semantics
+A novel transductive sequence-to-graph parsing model that jointly learns to map natural language uttearcnes to UDS graph structures and predict decompositional semantic attribute scores.	innovates	To solve the problem of brittleness in existing categorical semantic formalisms, a transductive sequence-to-graph parsing model is innovatively proposed to jointly map natural language utterances to UDS graph structures and predict decompositional semantic attributes, achieving 84.19 in F1 Score on the UDS1.0 dataset.
+A novel transductive sequence-to-graph parsing model that jointly learns to map natural language uttearcnes to UDS graph structures and predict decompositional semantic attribute scores.	solves	Existing categorical semantic formalisms struggle with non-prototypical instances and face difficulties in handling changing label ontologies and new datasets.
+Unsupervised Cross-lingual Representation Learning at Scale	keywords	['XLM-R','Multilingual Language Models','Cross-lingual Transfer']
+Alexis  Conneau 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Alexis  Conneau 	works for	Equal contribution
+Kartikay  Khandelwal 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Kartikay  Khandelwal 	works for	Equal contribution
+Naman  Goyal 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Naman  Goyal 	works for	Equal contribution
+Vishrav  Chaudhary 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Vishrav  Chaudhary 	works for	Equal contribution
+Guillaume  Wenzek 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Guillaume  Wenzek 	works for	Equal contribution
+Francisco  Guzmán 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Francisco  Guzmán 	works for	Equal contribution
+Edouard  Grave 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Edouard  Grave 	works for	Equal contribution
+Myle  Ott 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Myle  Ott 	works for	Equal contribution
+Luke  Zettlemoyer 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Luke  Zettlemoyer 	works for	Equal contribution
+Veselin  Stoyanov 	writes	Unsupervised Cross-lingual Representation Learning at Scale
+Veselin  Stoyanov 	works for	Equal contribution
+Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics	publishs	Unsupervised Cross-lingual Representation Learning at Scale
+Unsupervised Cross-lingual Representation Learning at Scale	belongs to	Unsupervised Cross-lingual Representation Learning at Scale
+Unsupervised Cross-lingual Representation Learning at Scale	solves	Existing multilingual models face limitations in achieving high performance across various languages, particularly low-resource ones, without diluting model capacity.
+Unsupervised Cross-lingual Representation Learning at Scale	proposes	XLM-R, a Transformer-based multilingual masked language model pre-trained on text from 100 languages.
+XLM-R, a Transformer-based multilingual masked language model pre-trained on text from 100 languages.	proposes	XLM-R
+Unsupervised Cross-lingual Representation Learning at Scale	proposes	XLM-R
+Unsupervised Cross-lingual Representation Learning at Scale	works on	Cross-lingual language understanding
+Unsupervised Cross-lingual Representation Learning at Scale	innovates	To solve the limitation of model capacity dilution and low performance in low-resource languages present in cross-lingual language understanding, the innovative XLM-R model is proposed. This method shows improved results across various multilingual benchmarks, including XNLI (80.9% accuracy), MLQA (70.7% F1), and NER (89.43% F1).
+XLM-R, a Transformer-based multilingual masked language model pre-trained on text from 100 languages.	works on	Cross-lingual language understanding
+XLM-R, a Transformer-based multilingual masked language model pre-trained on text from 100 languages.	innovates	To solve the limitation of model capacity dilution and low performance in low-resource languages present in cross-lingual language understanding, the innovative XLM-R model is proposed. This method shows improved results across various multilingual benchmarks, including XNLI (80.9% accuracy), MLQA (70.7% F1), and NER (89.43% F1).
+XLM-R, a Transformer-based multilingual masked language model pre-trained on text from 100 languages.	solves	Existing multilingual models face limitations in achieving high performance across various languages, particularly low-resource ones, without diluting model capacity.
+Parallel Corpus Filtering via Pre-trained Language Models	keywords	['Parallel Corpus Filtering','Machine Translation','Pre-trained Language Models']
+Boliang  Zhang 	writes	Parallel Corpus Filtering via Pre-trained Language Models
+Boliang  Zhang 	works for	DiDi Labs
+Ajay  Nagesh 	writes	Parallel Corpus Filtering via Pre-trained Language Models
+Ajay  Nagesh 	works for	DiDi Labs
+Kevin  Knight 	writes	Parallel Corpus Filtering via Pre-trained Language Models
+Kevin  Knight 	works for	DiDi Labs
+Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics	publishs	Parallel Corpus Filtering via Pre-trained Language Models
+Parallel Corpus Filtering via Pre-trained Language Models	belongs to	Parallel Corpus Filtering via Pre-trained Language Models
+Parallel Corpus Filtering via Pre-trained Language Models	solves	The noisy nature of web-crawled parallel corpora for training NMT systems and the sensitivity of NMT models to such noise.
+Parallel Corpus Filtering via Pre-trained Language Models	proposes	A filtering approach using multilingual BERT for sentence parallelism and GPT as a domain filter to improve corpus quality.
+Parallel Corpus Filtering via Pre-trained Language Models	works on	Parallel corpus filtering for machine translation
+Parallel Corpus Filtering via Pre-trained Language Models	innovates	To solve the problem of noisy web-crawled parallel corpora in machine translation, the innovative approach of using pre-trained language models like multilingual BERT and GPT for filtering is proposed, achieving state-of-the-art results. 
+A filtering approach using multilingual BERT for sentence parallelism and GPT as a domain filter to improve corpus quality.	works on	Parallel corpus filtering for machine translation
+A filtering approach using multilingual BERT for sentence parallelism and GPT as a domain filter to improve corpus quality.	innovates	To solve the problem of noisy web-crawled parallel corpora in machine translation, the innovative approach of using pre-trained language models like multilingual BERT and GPT for filtering is proposed, achieving state-of-the-art results. 
+A filtering approach using multilingual BERT for sentence parallelism and GPT as a domain filter to improve corpus quality.	solves	The noisy nature of web-crawled parallel corpora for training NMT systems and the sensitivity of NMT models to such noise.
+Fast semantic parsing with well-typedness guarantees	keywords	['AM Dependency Parsing', 'Semantic Parsing', 'Linguistic Typing']
+Matthias  Lindemann 	writes	Fast semantic parsing with well-typedness guarantees
+Matthias  Lindemann 	works for	Department of Language Science and Technology
+Jonas  Groschwitz 	writes	Fast semantic parsing with well-typedness guarantees
+Jonas  Groschwitz 	works for	Department of Language Science and Technology
+Alexander  Koller 	writes	Fast semantic parsing with well-typedness guarantees
+Alexander  Koller 	works for	Department of Language Science and Technology
+Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)	publishs	Fast semantic parsing with well-typedness guarantees
+Fast semantic parsing with well-typedness guarantees	belongs to	Fast semantic parsing with well-typedness guarantees
+Fast semantic parsing with well-typedness guarantees	solves	Existing AM dependency parsers are slow due to computationally expensive type constraints needed to ensure well-typedness.
+Fast semantic parsing with well-typedness guarantees	proposes	A transition-based parser complemented by an A* parser improves parsing speed significantly while maintaining or improving accuracy.
+A transition-based parser complemented by an A* parser improves parsing speed significantly while maintaining or improving accuracy.	proposes	Transition-based parser
+Fast semantic parsing with well-typedness guarantees	proposes	Transition-based parser
+Fast semantic parsing with well-typedness guarantees	works on	Semantic parsing of English sentences into graph-based semantic representations
+Fast semantic parsing with well-typedness guarantees	innovates	To solve the slow parsing speed caused by type constraints in AM dependency parsing, the introduction of a transition-based parser, along with an A* parser, dramatically improves speed up to three orders of magnitude while ensuring well-typedness and maintaining or improving accuracy.
+A transition-based parser complemented by an A* parser improves parsing speed significantly while maintaining or improving accuracy.	works on	Semantic parsing of English sentences into graph-based semantic representations
+A transition-based parser complemented by an A* parser improves parsing speed significantly while maintaining or improving accuracy.	innovates	To solve the slow parsing speed caused by type constraints in AM dependency parsing, the introduction of a transition-based parser, along with an A* parser, dramatically improves speed up to three orders of magnitude while ensuring well-typedness and maintaining or improving accuracy.
+A transition-based parser complemented by an A* parser improves parsing speed significantly while maintaining or improving accuracy.	solves	Existing AM dependency parsers are slow due to computationally expensive type constraints needed to ensure well-typedness.
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	keywords	['Korean NLI','Korean STS','Natural Language Understanding']
+Jiyeon  Ham 	writes	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+Yo Joong Choe 	writes	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+Kyubyong  Park 	writes	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+Ilji  Choi 	writes	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+Hyungjoon  Soh 	writes	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+Kakao  Brain 	writes	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+Findings of the Association for Computational Linguistics: EMNLP 2020	publishs	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	belongs to	KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	solves	Lack of publicly available benchmark datasets for Korean NLI and STS tasks, which hinders the development of Korean NLU models.
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	proposes	The paper introduces new benchmark datasets for Korean NLI and STS, named KorNLI and KorSTS, respectively. It also establishes baseline models for these datasets.
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	works on	Korean NLI and STS
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	innovates	To solve the lack of benchmark datasets for Korean NLI and STS tasks in NLP, the introduction of KorNLI and KorSTS datasets is innovatively proposed, achieving notable results: 82.75% accuracy on KorNLI and 83.00 Spearman correlation on KorSTS.
+The paper introduces new benchmark datasets for Korean NLI and STS, named KorNLI and KorSTS, respectively. It also establishes baseline models for these datasets.	works on	Korean NLI and STS
+The paper introduces new benchmark datasets for Korean NLI and STS, named KorNLI and KorSTS, respectively. It also establishes baseline models for these datasets.	innovates	To solve the lack of benchmark datasets for Korean NLI and STS tasks in NLP, the introduction of KorNLI and KorSTS datasets is innovatively proposed, achieving notable results: 82.75% accuracy on KorNLI and 83.00 Spearman correlation on KorSTS.
+The paper introduces new benchmark datasets for Korean NLI and STS, named KorNLI and KorSTS, respectively. It also establishes baseline models for these datasets.	solves	Lack of publicly available benchmark datasets for Korean NLI and STS tasks, which hinders the development of Korean NLU models.
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	keywords	['Subword Tokenization', 'Language Models', 'NLP']
+Kaj  Bostrom 	writes	Byte Pair Encoding is Suboptimal for Language Model Pretraining
+Kaj  Bostrom 	works for	Department of Computer Science
+Greg  Durrett 	writes	Byte Pair Encoding is Suboptimal for Language Model Pretraining
+Greg  Durrett 	works for	Department of Computer Science
+Findings of the Association for Computational Linguistics: EMNLP 2020	publishs	Byte Pair Encoding is Suboptimal for Language Model Pretraining
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	belongs to	Byte Pair Encoding is Suboptimal for Language Model Pretraining
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	solves	Evaluating the differences between BPE and unigram LM tokenization methods and their impact on pretrained language models.
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	proposes	Training and comparing transformer language models using both BPE and unigram LM methods to assess their morphological alignment and downstream performance.
+Training and comparing transformer language models using both BPE and unigram LM methods to assess their morphological alignment and downstream performance.	proposes	Transformer Language Models (TLMs)
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	proposes	Transformer Language Models (TLMs)
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	works on	Tokenization method evaluation
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	innovates	To solve the problem of the influence of subword tokenization in pretrained language models, a comparison of BPE and unigram LM methods is innovatively proposed. The results suggest that unigram LM tokenization may lead to a more economical vocabulary allocation and improved downstream task performance. The method shows an 85 F1 score on the SQuAD dataset.'
+Training and comparing transformer language models using both BPE and unigram LM methods to assess their morphological alignment and downstream performance.	works on	Tokenization method evaluation
+Training and comparing transformer language models using both BPE and unigram LM methods to assess their morphological alignment and downstream performance.	innovates	To solve the problem of the influence of subword tokenization in pretrained language models, a comparison of BPE and unigram LM methods is innovatively proposed. The results suggest that unigram LM tokenization may lead to a more economical vocabulary allocation and improved downstream task performance. The method shows an 85 F1 score on the SQuAD dataset.'
+Training and comparing transformer language models using both BPE and unigram LM methods to assess their morphological alignment and downstream performance.	solves	Evaluating the differences between BPE and unigram LM tokenization methods and their impact on pretrained language models.
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	keywords	['Multilingual NLP', 'Vocabulary Size', 'Byte-Pair Encoding']
+Sangwhan  Moon 	writes	Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization
+Sangwhan  Moon 	works for	Tokyo Institute of Technology †
+Naoaki  Okazaki 	writes	Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization
+Naoaki  Okazaki 	works for	Tokyo Institute of Technology †
+Proceedings of the 12th Language Resources and Evaluation Conference	publishs	Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	belongs to	Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	solves	Existing multilingual language models struggle with the large character set vocabulary size required for languages like Korean, increasing cost and complexity.
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	proposes	The paper proposes two algorithms that enhance the flexibility of Byte-Pair Encoding tokenizers, reducing the vocabulary budget for Korean in multilingual models.
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	works on	Multilingual language model pre-training
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	innovates	To solve the large vocabulary size problem existing in multilingual NLP models, two new algorithms are innovatively proposed, leading to a significant reduction in the vocabulary budget required for Korean, achieving almost negligible OOV rates with smaller vocabulary sizes.'
+The paper proposes two algorithms that enhance the flexibility of Byte-Pair Encoding tokenizers, reducing the vocabulary budget for Korean in multilingual models.	works on	Multilingual language model pre-training
+The paper proposes two algorithms that enhance the flexibility of Byte-Pair Encoding tokenizers, reducing the vocabulary budget for Korean in multilingual models.	innovates	To solve the large vocabulary size problem existing in multilingual NLP models, two new algorithms are innovatively proposed, leading to a significant reduction in the vocabulary budget required for Korean, achieving almost negligible OOV rates with smaller vocabulary sizes.'
+The paper proposes two algorithms that enhance the flexibility of Byte-Pair Encoding tokenizers, reducing the vocabulary budget for Korean in multilingual models.	solves	Existing multilingual language models struggle with the large character set vocabulary size required for languages like Korean, increasing cost and complexity.
+Unsupervised Quality Estimation for Neural Machine Translation	keywords	['Quality Estimation', 'Machine Translation', 'Unsupervised Learning']
+Marina  Fomicheva 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Marina  Fomicheva 	works for	University of Sheffield
+Shuo  Sun 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Shuo  Sun 	works for	Johns Hopkins University
+Lisa  Yankovskaya 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Lisa  Yankovskaya 	works for	University of Tartu
+Frédéric  Blain 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Frédéric  Blain 	works for	University of Sheffield
+Francisco  Guzmán 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Francisco  Guzmán 	works for	Facebook AI
+Mark  Fishel 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Mark  Fishel 	works for	University of Tartu
+Nikolaos  Aletras 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Nikolaos  Aletras 	works for	University of Sheffield
+Vishrav  Chaudhary 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Vishrav  Chaudhary 	works for	Facebook AI
+Lucia  Specia 	writes	Unsupervised Quality Estimation for Neural Machine Translation
+Lucia  Specia 	works for	University of Sheffield
+Proceedings of the Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics2020	publishs	Unsupervised Quality Estimation for Neural Machine Translation
+Unsupervised Quality Estimation for Neural Machine Translation	belongs to	Unsupervised Quality Estimation for Neural Machine Translation
+Unsupervised Quality Estimation for Neural Machine Translation	solves	Existing quality estimation methods require extensive annotated data and consider the MT system as a black box.
+Unsupervised Quality Estimation for Neural Machine Translation	proposes	An unsupervised quality estimation approach based on extracting information from the NMT system’s uncertainty quantification.
+Unsupervised Quality Estimation for Neural Machine Translation	works on	Machine Translation Quality Estimation
+Unsupervised Quality Estimation for Neural Machine Translation	innovates	To solve the extensive data requirement and black box problem in quality estimation for machine translation, an unsupervised approach using information from NMT system uncertainty quantification is innovatively proposed and achieves competitive results with high correlation to human judgment.
+An unsupervised quality estimation approach based on extracting information from the NMT system’s uncertainty quantification.	works on	Machine Translation Quality Estimation
+An unsupervised quality estimation approach based on extracting information from the NMT system’s uncertainty quantification.	innovates	To solve the extensive data requirement and black box problem in quality estimation for machine translation, an unsupervised approach using information from NMT system uncertainty quantification is innovatively proposed and achieves competitive results with high correlation to human judgment.
+An unsupervised quality estimation approach based on extracting information from the NMT system’s uncertainty quantification.	solves	Existing quality estimation methods require extensive annotated data and consider the MT system as a black box.
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	uses	Wiki
+Korean NLP tasks	uses	Wiki
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	uses	KorQuAD
+Korean NLP tasks	uses	KorQuAD
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	uses	AI Hub
+Korean NLP tasks	uses	AI Hub
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	uses	F1
+Korean NLP tasks	uses	F1
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	uses	BLEU
+Korean NLP tasks	uses	BLEU
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	uses	Amazon
+Recommendation and rating prediction	uses	Amazon
+BENEFICT	uses	Amazon
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	uses	Yelp
+Recommendation and rating prediction	uses	Yelp
+BENEFICT	uses	Yelp
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	uses	RMSE
+Recommendation and rating prediction	uses	RMSE
+BENEFICT	uses	RMSE
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	uses	Improvement Gain
+Recommendation and rating prediction	uses	Improvement Gain
+BENEFICT	uses	Improvement Gain
+BERT-Based Neural Collaborative Filtering and Fixed-Length Contiguous Tokens Explanation	uses	QWK
+Recommendation and rating prediction	uses	QWK
+BENEFICT	uses	QWK
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	uses	WMT15
+Simultaneous neural machine translation	uses	WMT15
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	uses	IWSLT16
+Simultaneous neural machine translation	uses	IWSLT16
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	uses	NIST
+Simultaneous neural machine translation	uses	NIST
+A General Framework for Adaptation of Neural Machine Translation to Simultaneous Translation	uses	BLEU
+Simultaneous neural machine translation	uses	BLEU
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	uses	ASPEC-JC
+Cross-lingual Chinese-Japanese NLP tasks	uses	ASPEC-JC
+UnihanLM	uses	ASPEC-JC
+UnihanLM: Coarse-to-Fine Chinese-Japanese Language Model Pretraining with the Unihan Database	uses	BLEU
+Cross-lingual Chinese-Japanese NLP tasks	uses	BLEU
+UnihanLM	uses	BLEU
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	uses	IWSLT2014 (es-en)
+neural machine translation	uses	IWSLT2014 (es-en)
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	uses	IWSLT2014 (de-en)
+neural machine translation	uses	IWSLT2014 (de-en)
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	uses	WMT2014 (en-de)
+neural machine translation	uses	WMT2014 (en-de)
+Towards a Better Understanding of Label Smoothing in Neural Machine Translation	uses	BLEU
+neural machine translation	uses	BLEU
+AMR Quality Rating with a Lightweight CNN	uses	Debiased AMR Quality Data
+Rating AMR graph quality	uses	Debiased AMR Quality Data
+Lightweight CNN	uses	Debiased AMR Quality Data
+AMR Quality Rating with a Lightweight CNN	uses	Pearson\s ρ
+Rating AMR graph quality	uses	Pearson\s ρ
+Lightweight CNN	uses	Pearson\s ρ
+AMR Quality Rating with a Lightweight CNN	uses	Smatch recall
+Rating AMR graph quality	uses	Smatch recall
+Lightweight CNN	uses	Smatch recall
+AMR Quality Rating with a Lightweight CNN	uses	Smatch precision
+Rating AMR graph quality	uses	Smatch precision
+Lightweight CNN	uses	Smatch precision
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	uses	CMU-MOSEI
+Multi-modal emotion recognition	uses	CMU-MOSEI
+Modality-transferable model	uses	CMU-MOSEI
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	uses	IEMOCAP
+Multi-modal emotion recognition	uses	IEMOCAP
+Modality-transferable model	uses	IEMOCAP
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	uses	W-Acc
+Multi-modal emotion recognition	uses	W-Acc
+Modality-transferable model	uses	W-Acc
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	uses	AUC
+Multi-modal emotion recognition	uses	AUC
+Modality-transferable model	uses	AUC
+Modality-Transferable Emotion Embeddings for Low-Resource Multimodal Emotion Recognition	uses	Acc
+Multi-modal emotion recognition	uses	Acc
+Modality-transferable model	uses	Acc
+An Exploratory Study on Multilingual Quality Estimation	uses	WMT 2020 QE Task 1
+Quality Estimation for Machine Translation	uses	WMT 2020 QE Task 1
+Baseline QE Model (BASE)	uses	WMT 2020 QE Task 1
+An Exploratory Study on Multilingual Quality Estimation	uses	Pearson correlation
+Quality Estimation for Machine Translation	uses	Pearson correlation
+Baseline QE Model (BASE)	uses	Pearson correlation
+Self-Supervised Learning for Pairwise Data Refinement	uses	ParaCrawl v1.0
+Data Refinement for Machine Translation	uses	ParaCrawl v1.0
+Dual-Encoder Models and Transformer-Big	uses	ParaCrawl v1.0
+Self-Supervised Learning for Pairwise Data Refinement	uses	Best F1 en-fr
+Data Refinement for Machine Translation	uses	Best F1 en-fr
+Dual-Encoder Models and Transformer-Big	uses	Best F1 en-fr
+Self-Supervised Learning for Pairwise Data Refinement	uses	AUCPR en-de
+Data Refinement for Machine Translation	uses	AUCPR en-de
+Dual-Encoder Models and Transformer-Big	uses	AUCPR en-de
+Self-Supervised Learning for Pairwise Data Refinement	uses	Best F1 en-de
+Data Refinement for Machine Translation	uses	Best F1 en-de
+Dual-Encoder Models and Transformer-Big	uses	Best F1 en-de
+Self-Supervised Learning for Pairwise Data Refinement	uses	AUCPR en-fr
+Data Refinement for Machine Translation	uses	AUCPR en-fr
+Dual-Encoder Models and Transformer-Big	uses	AUCPR en-fr
+Multilingual Universal Sentence Encoder for Semantic Retrieval	uses	Quora Question Pairs
+Semantic Retrieval	uses	Quora Question Pairs
+Multilingual Sentence Encoder (USE)	uses	Quora Question Pairs
+Multilingual Universal Sentence Encoder for Semantic Retrieval	uses	SQuAD v1.0
+Semantic Retrieval	uses	SQuAD v1.0
+Multilingual Sentence Encoder (USE)	uses	SQuAD v1.0
+Multilingual Universal Sentence Encoder for Semantic Retrieval	uses	UN Parallel Corpus
+Semantic Retrieval	uses	UN Parallel Corpus
+Multilingual Sentence Encoder (USE)	uses	UN Parallel Corpus
+Multilingual Universal Sentence Encoder for Semantic Retrieval	uses	AskUbuntu
+Semantic Retrieval	uses	AskUbuntu
+Multilingual Sentence Encoder (USE)	uses	AskUbuntu
+Multilingual Universal Sentence Encoder for Semantic Retrieval	uses	SR
+Semantic Retrieval	uses	SR
+Multilingual Sentence Encoder (USE)	uses	SR
+Multilingual Universal Sentence Encoder for Semantic Retrieval	uses	ReQA
+Semantic Retrieval	uses	ReQA
+Multilingual Sentence Encoder (USE)	uses	ReQA
+Multilingual Universal Sentence Encoder for Semantic Retrieval	uses	BR
+Semantic Retrieval	uses	BR
+Multilingual Sentence Encoder (USE)	uses	BR
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	uses	LDC2017T10
+AMR-to-text generation	uses	LDC2017T10
+GPT-2 with cycle consistency-based re-scoring	uses	LDC2017T10
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	uses	chrF++
+AMR-to-text generation	uses	chrF++
+GPT-2 with cycle consistency-based re-scoring	uses	chrF++
+GPT-too: A Language-Model-First Approach for AMR-to-Text Generation	uses	BLEU
+AMR-to-text generation	uses	BLEU
+GPT-2 with cycle consistency-based re-scoring	uses	BLEU
+Universal Decompositional Semantic Parsing	uses	UDS1.0
+Parsing natural language into Universal Decompositional Semantics	uses	UDS1.0
+Transductive sequence-to-graph parsing model	uses	UDS1.0
+Universal Decompositional Semantic Parsing	uses	F1 Score
+Parsing natural language into Universal Decompositional Semantics	uses	F1 Score
+Transductive sequence-to-graph parsing model	uses	F1 Score
+Universal Decompositional Semantic Parsing	uses	Recall
+Parsing natural language into Universal Decompositional Semantics	uses	Recall
+Transductive sequence-to-graph parsing model	uses	Recall
+Universal Decompositional Semantic Parsing	uses	Precision
+Parsing natural language into Universal Decompositional Semantics	uses	Precision
+Transductive sequence-to-graph parsing model	uses	Precision
+Unsupervised Cross-lingual Representation Learning at Scale	uses	NER
+Cross-lingual language understanding	uses	NER
+XLM-R	uses	NER
+Unsupervised Cross-lingual Representation Learning at Scale	uses	MLQA
+Cross-lingual language understanding	uses	MLQA
+XLM-R	uses	MLQA
+Unsupervised Cross-lingual Representation Learning at Scale	uses	XNLI
+Cross-lingual language understanding	uses	XNLI
+XLM-R	uses	XNLI
+Unsupervised Cross-lingual Representation Learning at Scale	uses	Avg accuracy
+Cross-lingual language understanding	uses	Avg accuracy
+XLM-R	uses	Avg accuracy
+Unsupervised Cross-lingual Representation Learning at Scale	uses	Avg F1
+Cross-lingual language understanding	uses	Avg F1
+XLM-R	uses	Avg F1
+Parallel Corpus Filtering via Pre-trained Language Models	uses	Japanese-Chinese
+Parallel corpus filtering for machine translation	uses	Japanese-Chinese
+Parallel Corpus Filtering via Pre-trained Language Models	uses	WMT 2018 German-English
+Parallel corpus filtering for machine translation	uses	WMT 2018 German-English
+Parallel Corpus Filtering via Pre-trained Language Models	uses	BLEU
+Parallel corpus filtering for machine translation	uses	BLEU
+Fast semantic parsing with well-typedness guarantees	uses	AMR 17
+Semantic parsing of English sentences into graph-based semantic representations	uses	AMR 17
+Transition-based parser	uses	AMR 17
+Fast semantic parsing with well-typedness guarantees	uses	DM
+Semantic parsing of English sentences into graph-based semantic representations	uses	DM
+Transition-based parser	uses	DM
+Fast semantic parsing with well-typedness guarantees	uses	PAS
+Semantic parsing of English sentences into graph-based semantic representations	uses	PAS
+Transition-based parser	uses	PAS
+Fast semantic parsing with well-typedness guarantees	uses	EDS
+Semantic parsing of English sentences into graph-based semantic representations	uses	EDS
+Transition-based parser	uses	EDS
+Fast semantic parsing with well-typedness guarantees	uses	AMR 15
+Semantic parsing of English sentences into graph-based semantic representations	uses	AMR 15
+Transition-based parser	uses	AMR 15
+Fast semantic parsing with well-typedness guarantees	uses	PSD
+Semantic parsing of English sentences into graph-based semantic representations	uses	PSD
+Transition-based parser	uses	PSD
+Fast semantic parsing with well-typedness guarantees	uses	AMR 20
+Semantic parsing of English sentences into graph-based semantic representations	uses	AMR 20
+Transition-based parser	uses	AMR 20
+Fast semantic parsing with well-typedness guarantees	uses	F-score
+Semantic parsing of English sentences into graph-based semantic representations	uses	F-score
+Transition-based parser	uses	F-score
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	uses	KorNLI
+Korean NLI and STS	uses	KorNLI
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	uses	KorSTS
+Korean NLI and STS	uses	KorSTS
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	uses	Accuracy
+Korean NLI and STS	uses	Accuracy
+KorNLI and KorSTS: New Benchmark Datasets for Korean Natural Language Understanding	uses	Spearman
+Korean NLI and STS	uses	Spearman
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	uses	SQuAD
+Tokenization method evaluation	uses	SQuAD
+Transformer Language Models (TLMs)	uses	SQuAD
+Byte Pair Encoding is Suboptimal for Language Model Pretraining	uses	F1 Score
+Tokenization method evaluation	uses	F1 Score
+Transformer Language Models (TLMs)	uses	F1 Score
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	uses	Wikipedia
+Multilingual language model pre-training	uses	Wikipedia
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	uses	OC
+Multilingual language model pre-training	uses	OC
+Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization	uses	OR
+Multilingual language model pre-training	uses	OR
+Unsupervised Quality Estimation for Neural Machine Translation	uses	En-Zh
+Machine Translation Quality Estimation	uses	En-Zh
+Unsupervised Quality Estimation for Neural Machine Translation	uses	En-De
+Machine Translation Quality Estimation	uses	En-De
+Unsupervised Quality Estimation for Neural Machine Translation	uses	Ne-En
+Machine Translation Quality Estimation	uses	Ne-En
+Unsupervised Quality Estimation for Neural Machine Translation	uses	Ro-En
+Machine Translation Quality Estimation	uses	Ro-En
+Unsupervised Quality Estimation for Neural Machine Translation	uses	Pearson r
+Machine Translation Quality Estimation	uses	Pearson r
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	bases on	Byte Pair Encoding is Suboptimal for Language Model Pretraining
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	bases on	Jamo Pair Encoding: Subcharacter Representation-based Extreme Korean Vocabulary Compression for Efficient Subword Tokenization
+An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks	bases on	An Exploratory Study on Multilingual Quality Estimation
+AMR Quality Rating with a Lightweight CNN	bases on	GPT-too: A Language-Model-First Approach for AMR-to-Text Generation
+AMR Quality Rating with a Lightweight CNN	bases on	Universal Decompositional Semantic Parsing
+AMR Quality Rating with a Lightweight CNN	bases on	Fast semantic parsing with well-typedness guarantees
+An Exploratory Study on Multilingual Quality Estimation	bases on	Unsupervised Cross-lingual Representation Learning at Scale
+An Exploratory Study on Multilingual Quality Estimation	bases on	Unsupervised Quality Estimation for Neural Machine Translation
+Self-Supervised Learning for Pairwise Data Refinement	bases on	Parallel Corpus Filtering via Pre-trained Language Models
+Self-Supervised Learning for Pairwise Data Refinement	bases on	Multilingual Universal Sentence Encoder for Semantic Retrieval
