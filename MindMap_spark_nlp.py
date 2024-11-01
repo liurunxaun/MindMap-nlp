@@ -171,7 +171,18 @@ def cosine_similarity_manual(x, y):
     return sim
 
 
-def get_related_title(match_kg):
+def get_related_title_relation(match_kg):
+    """
+    输入：知识图谱中匹配到的实体数组
+    处理过程：
+
+    输出：知识图谱匹配到的实体及其相关论文标题数组
+    """
+    titles = []
+    return titles
+
+
+def get_related_title_label(match_kg):
     """
     输入：知识图谱中匹配到的实体数组
     处理过程：
@@ -195,12 +206,12 @@ def get_related_title(match_kg):
             label = result.single()
             label = label["label"] if label else None
 
-            if label == "title":
+            if label == "标题":
                 title = match_entity
                 titles.append([match_entity, title])
             else:
                 result = session.run(
-                    "MATCH (n)-[r]-(m:title) "
+                    "MATCH (n)-[r]-(m:标题) "
                     "WHERE n.name = $entity_name "
                     "RETURN m.name AS name",
                     entity_name = match_entity
@@ -224,7 +235,7 @@ def get_titles_graph(titles):
     with driver.session() as session:
         for title in titles:
             result = session.run(
-                "MATCH (n:title {name: $title})-[r]-(m) "
+                "MATCH (n:标题 {name: $title})-[r]-(m) "
                 "RETURN n, r, m",
                 title=title
             )
@@ -244,7 +255,7 @@ def get_titles_graph(titles):
                 subgraph['nodes'].append({
                     'id': node_n.id,
                     'label': node_n['name'],
-                    'type': 'Title'
+                    'type': '标题'
                 })
                 subgraph['nodes'].append({
                     'id': node_m.id,
@@ -735,10 +746,7 @@ def final_answer(input_text, response_of_KG_list_path, response_of_KG_neighbor, 
 def generate(input_text):
     # 1 构建neo4j知识图谱数据库
     print("\n==========1 构建neo4j知识图谱数据库===========")
-    df_path = "./data/nlp/sample.txt"
-    model = BGEM3FlagModel('/Users/liurunxuan/学习/科大讯飞实习/KGQA/MindMap/MindMap-lb/model/BAAI/beg-m3',
-                           use_fp16=True)  # Setting use_fp16 to True speeds up computation with a slight performance degradation
-
+    df_path = "./data/nlp/relation.txt"
     # 如果对应neo4j中没有该知识图谱数据库，需要运行这段代码。如果已经有了，可以注释掉。
     # build_ne4j(df_path)
 
@@ -761,6 +769,9 @@ def generate(input_text):
     with open('./data/nlp/bge_entity_embeddings_nlp.pkl', 'rb') as f1:
         entity_embeddings = pickle.load(f1)
     entity_embeddings_emb = pd.DataFrame(entity_embeddings["embeddings"])
+
+    model = BGEM3FlagModel('/Users/liurunxuan/学习/科大讯飞实习/KGQA/MindMap/MindMap-lb/model/BAAI/beg-m3',
+                           use_fp16=True)  # Setting use_fp16 to True speeds up computation with a slight performance degradation
 
     match_kg = []
     for kg_entity in question_kg:
@@ -785,7 +796,7 @@ def generate(input_text):
 
 
     # 4 获得所有相关论文标题
-    titles = get_related_title(match_kg)
+    titles = get_related_title_label(match_kg)
     print("所有相关论文标题:")
     print(titles)
 
@@ -841,9 +852,9 @@ def main():
 
 if __name__ == "__main__":
     # 连接neo4j
-    uri = "bolt://107.22.77.245:7687"
+    uri = "bolt://127.0.0.1:7687"
     username = "neo4j"
-    password = "stop-thumbs-peaks"
+    password = "12345678"
     driver = GraphDatabase.driver(uri, auth=(username, password))
     session = driver.session()
     print("\n成功连接neo4j\n")
