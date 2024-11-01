@@ -27,9 +27,9 @@ from neo4j import GraphDatabase
 
 def build_ne4j_label(df_path):
     # clean all
-    print("删除原有知识图谱数据库")
+    # print("删除原有知识图谱数据库")
     # session.run("MATCH (n) DETACH DELETE n")
-    print("删除成功")
+    # print("删除成功")
 
     # read triples
     with open(df_path, 'r', encoding='utf-8') as file, open('./data/nlp/problem.txt', 'a', encoding='utf-8') as problem_file:
@@ -66,15 +66,15 @@ def build_ne4j_label(df_path):
     print("构建完成")
 
 
+if __name__ == "__main__":
+    # 连接neo4j
+    uri = "bolt://127.0.0.1:7687"
+    username = "neo4j"
+    password = "12345678"
+    driver = GraphDatabase.driver(uri, auth=(username, password))
+    session = driver.session()
+    print("\n成功连接neo4j\n")
 
-# 连接neo4j
-uri = "bolt://127.0.0.1:7687"
-username = "neo4j"
-password = "12345678"
-driver = GraphDatabase.driver(uri, auth=(username, password))
-session = driver.session()
-print("\n成功连接neo4j\n")
-
-df_path = "./data/nlp/relation_label.txt"
-# build_ne4j(df_path)
-build_ne4j_label(df_path)
+    df_path = "./data/nlp/relation_label.txt"
+    # build_ne4j(df_path)
+    build_ne4j_label(df_path)

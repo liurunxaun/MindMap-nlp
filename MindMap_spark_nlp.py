@@ -200,8 +200,8 @@ def get_related_title_label(match_kg):
             result = session.run(
                 "MATCH (n) "
                 "WHERE n.name = $entity_name "
-                "RETURN label(n) AS label",
-                entity_name = match_entity
+                "RETURN n.label AS label",
+                entity_name=match_entity
             )
             label = result.single()
             label = label["label"] if label else None
@@ -211,10 +211,10 @@ def get_related_title_label(match_kg):
                 titles.append([match_entity, title])
             else:
                 result = session.run(
-                    "MATCH (n)-[r]-(m:标题) "
-                    "WHERE n.name = $entity_name "
+                    "MATCH (n)-[r]-(m) "
+                    "WHERE n.name = $entity_name AND m.label = '标题' "
                     "RETURN m.name AS name",
-                    entity_name = match_entity
+                    entity_name=match_entity
                 )
                 neighbors = [record["name"] for record in result]
                 for title in neighbors:
@@ -230,12 +230,15 @@ def get_titles_graph(titles):
     输出：每个标题对应的子图（后面我要用来在vue前端可视化）
     """
     print("\n==========5 获得所有相关论文标题的知识图谱===========")
-    graphs = {}
+    graphs = []
 
     with driver.session() as session:
-        for title in titles:
+        for title_array in titles:
+            title = title_array[1]
+            print("title:" + title)
             result = session.run(
-                "MATCH (n:标题 {name: $title})-[r]-(m) "
+                "MATCH (n {name: $title})-[r]-(m) "
+                "WHERE n.label = '标题' "
                 "RETURN n, r, m",
                 title=title
             )
@@ -253,25 +256,25 @@ def get_titles_graph(titles):
 
                 # 添加节点
                 subgraph['nodes'].append({
-                    'id': node_n.id,
+                    'id': node_n.element_id,
                     'label': node_n['name'],
                     'type': '标题'
                 })
                 subgraph['nodes'].append({
-                    'id': node_m.id,
+                    'id': node_m.element_id,
                     'label': node_m['name'],
                     'type': 'Neighbor'
                 })
 
                 # 添加边
                 subgraph['edges'].append({
-                    'source': node_n.id,
-                    'target': node_m.id,
-                    'relationship': type(relationship).__name__
+                    'source': node_n.element_id,
+                    'target': node_m.element_id,
+                    # 'relationship': type(relationship).__name__
                 })
 
-            # 将子图存入字典
-            graphs[title] = subgraph
+            # 将子图存入
+            graphs.append(subgraph)
 
     return graphs
 
@@ -685,8 +688,8 @@ def final_answer(input_text, response_of_KG_list_path, response_of_KG_neighbor, 
         您是一位机器学习领域的专家AI，能够根据对话中的详细信息诊断技术问题，并推荐最佳的解决方法或模型。
         用户输入: {input_text}
         您可以访问以下相关知识资源，但请根据问题内容进行选择性参考，仅在必要时使用相关信息！！以确保回答的准确性和专业性：
-        ### {response_of_KG_list_path}
-        ### {response_of_KG_neighbor}
+        ### \n{response_of_KG_list_path}
+        ### \n{response_of_KG_neighbor}
         请用中文回答，不换行。对于论文题目和专业词汇不需要翻译。
         在答案之前加上“在我当前知识库中检索到，”
         """
@@ -766,7 +769,7 @@ def generate(input_text):
     print("\n==========3 在知识图谱中匹配实体===========")
 
     # 读取知识图谱中实体的embedding
-    with open('./data/nlp/bge_entity_embeddings_nlp.pkl', 'rb') as f1:
+    with open('./data/nlp/bge_entity_embeddings_40000.pkl', 'rb') as f1:
         entity_embeddings = pickle.load(f1)
     entity_embeddings_emb = pd.DataFrame(entity_embeddings["embeddings"])
 
@@ -791,6 +794,7 @@ def generate(input_text):
             max_index = cos_similarities.argmax()
             match_kg_i = entity_embeddings["entities"][max_index]
 
+        match_kg_i = match_kg_i.split(':')[0]
         match_kg.append(match_kg_i)
     print('match_kg', match_kg)
 
@@ -803,6 +807,7 @@ def generate(input_text):
 
     # 5 户的所有相关论文标题的知识图谱
     graphs = get_titles_graph(titles)
+    print(graphs)
 
 
     # 6、7 路径子图探索和融合
@@ -810,6 +815,7 @@ def generate(input_text):
 
 
     # 8、9 邻居子图探索和融合
+    # TODO:不要筛选路径只剩下5条
     response_of_KG_neighbor = neighbor_exploration_and_aggregation(match_kg, question_kg)
 
 
