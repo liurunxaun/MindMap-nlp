@@ -182,7 +182,7 @@ def get_related_title_relation(match_kg):
     return titles
 
 
-def get_related_title_label(match_kg):
+def get_related_title_label(question_match_kg):
     """
     输入：知识图谱中匹配到的实体数组
     处理过程：
@@ -194,8 +194,11 @@ def get_related_title_label(match_kg):
     """
     print("\n==========4 获得所有相关论文标题===========")
     titles = []
+    question_entity_titles = [] # 格式是[[问题实体，匹配实体，论文标题], [ , , ],...]
 
-    for match_entity in match_kg:
+    for question_match_entity in question_match_kg:
+        question_entity = question_match_entity[0]
+        match_entity = question_match_entity[1]
         with driver.session() as session:
             result = session.run(
                 "MATCH (n) "
@@ -209,6 +212,7 @@ def get_related_title_label(match_kg):
             if label == "标题":
                 title = match_entity
                 titles.append([match_entity, title])
+                question_entity_titles.append([question_entity, match_entity ,title])
             else:
                 result = session.run(
                     "MATCH (n)-[r]-(m) "
@@ -219,8 +223,9 @@ def get_related_title_label(match_kg):
                 neighbors = [record["name"] for record in result]
                 for title in neighbors:
                     titles.append([match_entity, title])
+                    question_entity_titles.append([question_entity, match_entity, title])
 
-    return titles
+    return titles, question_entity_titles
 
 
 def get_titles_graph(titles):
@@ -556,7 +561,7 @@ def prompt_neighbor(neighbor):
     \n\n
     {neighbor}
     \n\n
-    Use the knowledge graph information. Try to convert them to natural language, respectively. Use single quotation marks for entity name and relation name. And name them as Neighbor-based Evidence 1, Neighbor-based Evidence 2,...\n\n
+    Use the knowledge graph information. Try to convert them to natural language, respectively. Use single quotation marks for entity name and relation name. \n\n
 
     Output:
     """
@@ -691,7 +696,6 @@ def final_answer(input_text, response_of_KG_list_path, response_of_KG_neighbor, 
         ### \n{response_of_KG_list_path}
         ### \n{response_of_KG_neighbor}
         请用中文回答，不换行。对于论文题目和专业词汇不需要翻译。
-        在答案之前加上“在我当前知识库中检索到，”
         """
     # 使用模板格式化，填充内容
     query = template.format(
@@ -777,6 +781,8 @@ def generate(input_text):
                            use_fp16=True)  # Setting use_fp16 to True speeds up computation with a slight performance degradation
 
     match_kg = []
+    question_match_kg = [] # 其实kg就是实体们，在mindmap的叙事语言中抽象成了知识图谱
+
     for kg_entity in question_kg:
         embeddings_1 = model.encode(kg_entity,
                                     batch_size=12,
@@ -796,13 +802,14 @@ def generate(input_text):
 
         match_kg_i = match_kg_i.split(':')[0]
         match_kg.append(match_kg_i)
-    print('match_kg', match_kg)
+        question_match_kg.append([kg_entity, match_kg_i])
+    print('question_match_kg', question_match_kg)
 
 
     # 4 获得所有相关论文标题
-    titles = get_related_title_label(match_kg)
-    print("所有相关论文标题:")
-    print(titles)
+    titles, question_entity_titles = get_related_title_label(question_match_kg)
+    print("问题实体匹配实体所有相关论文标题:")
+    print(question_entity_titles)
 
 
     # 5 户的所有相关论文标题的知识图谱
@@ -832,7 +839,7 @@ def generate(input_text):
         print(f"模型无法回答")
         return ["模型无法回答"]
     else:
-        return [mindmap_res, titles, graphs]
+        return [mindmap_res, question_entity_titles, graphs]
 
 
 @app.route('/process-data', methods=['POST'])
