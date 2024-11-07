@@ -263,19 +263,19 @@ def get_titles_graph(titles):
                 subgraph['nodes'].append({
                     'id': node_n.element_id,
                     'label': node_n['name'],
-                    'type': '标题'
+                    'type': node_n['label']
                 })
                 subgraph['nodes'].append({
                     'id': node_m.element_id,
                     'label': node_m['name'],
-                    'type': 'Neighbor'
+                    'type': node_m['label']
                 })
 
                 # 添加边
                 subgraph['edges'].append({
                     'source': node_n.element_id,
                     'target': node_m.element_id,
-                    # 'relationship': type(relationship).__name__
+                    'relationship': type(relationship).__name__
                 })
 
             # 将子图存入
@@ -356,7 +356,7 @@ def prompt_path_finding(path_input):
     \n\n
     {Path}
     \n\n
-    Use the knowledge graph information. Try to convert them to natural language, respectively. Use single quotation marks for entity name and relation name. And name them as Path-based Evidence 1, Path-based Evidence 2,...\n\n
+    Use the knowledge graph information. Try to convert them to natural language, respectively. Use single quotation marks for entity name and relation name.\n\n
 
     Output:
     """

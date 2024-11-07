@@ -1,1 +1,3 @@
 A Multi-Platform Arabic News Comment Dataset for Offensive Language Detection:标题	belongs to	Natural language processing and sentiment analysis'
+Inverse Document Density: A Smooth Measure for Location-Dependent Term Irregularities:标题	belongs to	Spatial text analysis'
+Automatic Linguistic Classification:标题	belongs to	computational linguistics'
