@@ -13,7 +13,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sparkai.core.messages import ChatMessage
 from sparkai.errors import SparkAIConnectionError
 from sparkai.llm.llm import ChatSparkLLM, ChunkPrintHandler
+from sympy.physics.units import length
 from websocket import create_connection
+from translate import Translator
 
 app = Flask(__name__)
 
@@ -235,11 +237,18 @@ def get_titles_graph(titles):
     输出：每个标题对应的子图（后面我要用来在vue前端可视化）
     """
     print("\n==========5 获得所有相关论文标题的知识图谱===========")
-    graphs = []
+    graphs = {
+                'nodes': [],
+                'edges': []
+            }
 
     with driver.session() as session:
-        for title_array in titles:
-            title = title_array[1]
+        if len(titles) >= 3:
+            graph_number = 3
+        else:
+            graph_number = len(titles)
+        for i in range(graph_number):
+            title = titles[i][1]
             print("title:" + title)
             result = session.run(
                 "MATCH (n {name: $title})-[r]-(m) "
@@ -248,40 +257,31 @@ def get_titles_graph(titles):
                 title=title
             )
 
-            # 创建子图
-            subgraph = {
-                'nodes': [],
-                'edges': []
-            }
-
             for record in result:
                 node_n = record['n']
                 node_m = record['m']
                 relationship = record['r']
 
                 # 添加节点
-                subgraph['nodes'].append({
+                graphs['nodes'].append({
                     'id': node_n.element_id,
                     'label': node_n['name'],
                     'type': node_n['label']
                 })
-                subgraph['nodes'].append({
+                graphs['nodes'].append({
                     'id': node_m.element_id,
                     'label': node_m['name'],
                     'type': node_m['label']
                 })
 
                 # 添加边
-                subgraph['edges'].append({
+                graphs['edges'].append({
                     'source': node_n.element_id,
                     'target': node_m.element_id,
                     'relationship': type(relationship).__name__
                 })
 
-            # 将子图存入
-            graphs.append(subgraph)
-
-    return graphs
+    return [graphs]
 
 
 def find_shortest_path(start_entity_name, end_entity_name, candidate_list):
@@ -753,7 +753,7 @@ def final_answer(input_text, response_of_KG_list_path, response_of_KG_neighbor, 
 def generate(input_text):
     # 1 构建neo4j知识图谱数据库
     print("\n==========1 构建neo4j知识图谱数据库===========")
-    df_path = "./data/nlp/relation.txt"
+    df_path = "data/nlp/knowledgeGraph/relation.txt"
     # 如果对应neo4j中没有该知识图谱数据库，需要运行这段代码。如果已经有了，可以注释掉。
     # build_ne4j(df_path)
 
@@ -773,26 +773,23 @@ def generate(input_text):
     print("\n==========3 在知识图谱中匹配实体===========")
 
     # 读取知识图谱中实体的embedding
-    with open('./data/nlp/bge_entity_embeddings_40000.pkl', 'rb') as f1:
+    with open('data/nlp/embedding/entity_embeddings_tfidf.pkl', 'rb') as f1:
         entity_embeddings = pickle.load(f1)
     entity_embeddings_emb = pd.DataFrame(entity_embeddings["embeddings"])
+    print(f"加载完毕，共有{len(entity_embeddings_emb)}")
 
-    model = BGEM3FlagModel('/Users/liurunxuan/学习/科大讯飞实习/KGQA/MindMap/MindMap-lb/model/BAAI/beg-m3',
-                           use_fp16=True)  # Setting use_fp16 to True speeds up computation with a slight performance degradation
+    # 从加载的数据中提取向量化器
+    vectorizer = entity_embeddings["vectorizer"]
 
     match_kg = []
     question_match_kg = [] # 其实kg就是实体们，在mindmap的叙事语言中抽象成了知识图谱
 
     for kg_entity in question_kg:
-        embeddings_1 = model.encode(kg_entity,
-                                    batch_size=12,
-                                    max_length=8192,
-                                    # If you don't need such a long length, you can set a smaller value to speed up the encoding process.
-                                    )['dense_vecs']
-        cos_similarities = cosine_similarity_manual(entity_embeddings_emb, embeddings_1)
-        # print("cos_similarities:")
-        # print(cos_similarities)
+        # 使用加载的 TfidfVectorizer 对输入实体进行编码
+        query_embedding = vectorizer.transform([kg_entity])
+        cos_similarities = cosine_similarity(query_embedding, entity_embeddings["embeddings"]).flatten()
         max_index = cos_similarities.argmax()
+        print(max_index, entity_embeddings["entities"][max_index])
 
         match_kg_i = entity_embeddings["entities"][max_index]
         while match_kg_i in match_kg:
@@ -851,6 +848,18 @@ def main():
         print("\n输入的问题为空")
         return ['']
     print('\nQuestion:', question)
+
+    # 初始化翻译器
+    translator = Translator(from_lang="zh", to_lang="en")
+    # 检查是否包含中文字符
+    if re.search('[\u4e00-\u9fff]', question):
+        # 如果包含中文字符，进行翻译
+        question = translator.translate(question)
+        print(f"翻译后的英文查询文本: {question}")
+    else:
+        # 如果是英文，不进行翻译
+        question = question
+        print("检测到英文查询文本，不进行翻译。")
 
     answers = generate(question)
     result = {"answer": answers}
