@@ -823,7 +823,7 @@ if __name__ == "__main__":
                 document_embedding_result = ""
             # if is_unable_to_answer(document_embedding_result):
             #     document_embedding_result = prompt_document(input_text[0],most_similar_doc)
-            print('\nEmbedding retrieval:\n', document_embedding_result)
+            print('\nembedding retrieval:\n', document_embedding_result)
 
             ### 12. Experiment 4: kg retrieval
             print(f"========实验4 kg=========")
