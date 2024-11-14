@@ -55,7 +55,9 @@ def spark_4_0(query, ip_port='10.43.108.62:8678'):
     }
     # 模板字符串
     template = """
-       question: {input_text}
+       您是一位专家，请回答用户的问题。
+       用户输入: {input_text}
+       请用中文回答，不换行。
        """
     text = template.format(input_text=query)
     # 准备数据
@@ -123,10 +125,11 @@ def get_question_entity(input_text, ip_port='10.43.108.62:8678'):
     }
     PROMPT_DICT = {
         "prompt_question_input": (
-                "根据以下输入提取相关的实体："
-                "例子：在图像识别任务中，我们使用卷积神经网络（CNN）来处理输入数据，并结合迁移学习提升模型的泛化能力。使用的优化算法为Adam。"
-                "### 输出:\n" + "图像识别,卷积神经网络,CNN,迁移学习,Adam"
-                                "\n\n### 输入:\n" + input_text + "### 输出:\n"
+                "Extract relevant entities from the following input, ensuring that an entity is not split into multiple parts, "
+                "especially when it comes to complete names, titles, or phrases like the title of a paper. "
+                "Example: 《Transfer Learning for NLP: A Comprehensive Overview》 this paper used a machine learning dataset. "
+                "### Output:\n" + "Transfer Learning for NLP: A Comprehensive Overview, machine learning dataset"
+                "\n\n### Input:\n" + input_text + "### Output:\n"
         ),
     }
 
@@ -173,15 +176,70 @@ def cosine_similarity_manual(x, y):
     return sim
 
 
-def get_related_title_relation(match_kg):
-    """
-    输入：知识图谱中匹配到的实体数组
-    处理过程：
+def get_sim_entity(question_kg):
+    match_kg = []
+    question_match_kg = []
+    global_matched_entities = set()  # 全局去重的集合
 
-    输出：知识图谱匹配到的实体及其相关论文标题数组
-    """
-    titles = []
-    return titles
+    for kg_entity in question_kg:
+        # 使用加载的 TfidfVectorizer 对输入实体进行编码
+        query_embedding = vectorizer.transform([kg_entity])
+
+        # 计算与所有实体的余弦相似度
+        cos_similarities = cosine_similarity(query_embedding, entity_embeddings["embeddings"]).flatten()
+
+        # 获取前五个最相似的实体的索引
+        top_5_indices = cos_similarities.argsort()[-5:][::-1]  # 获取前五个最大相似度的索引
+
+        # 当前问题实体的匹配实体集合（局部去重）
+        matched_entities = set()
+        max_similarity = -1  # 用来存储最大相似度
+        best_match_entity = None  # 用来存储相似度最大的实体
+        found_similarity_1 = False
+
+        # 遍历前五个最相似的实体，检查相似度条件
+        for idx in top_5_indices:
+            match_kg_i = entity_embeddings["entities"][idx]  # 获取相应的实体名称
+            similarity = cos_similarities[idx]
+
+            # 条件1: 如果相似度为 1，保存该实体
+            if similarity == 1:
+                if match_kg_i not in global_matched_entities:  # 确保全局去重
+                    matched_entities.add(match_kg_i)
+                    found_similarity_1 = True  # 标记找到相似度为 1 的实体
+
+            # 更新最大相似度的实体
+            if similarity > max_similarity and match_kg_i not in global_matched_entities:
+                max_similarity = similarity
+                best_match_entity = match_kg_i
+
+        # 遍历所有实体，寻找包含关系满足的实体，只保留前五个
+        count = 0  # 初始化计数器
+        for i, match_kg_i in enumerate(entity_embeddings["entities"]):
+            if count >= 4:  # 如果已添加五个实体，则退出循环
+                break
+            if kg_entity.lower() in match_kg_i.lower():  # 检查包含关系，不区分大小写
+                similarity = cos_similarities[i]
+                if match_kg_i not in global_matched_entities:  # 确保全局去重
+                    matched_entities.add(match_kg_i)
+                    count += 1  # 更新计数器
+
+        # 如果找到了相似度为 1 的实体，则直接保存这些实体
+        if found_similarity_1:
+            match_kg.append(list(matched_entities))  # 将集合转换为列表
+        else:
+            # 如果没有相似度为 1 的实体，保存相似度最大的实体和包含关系的前五个匹配实体
+            if best_match_entity:
+                matched_entities.add(best_match_entity)
+
+            match_kg.append(list(matched_entities))  # 添加包含关系匹配的前五个
+
+        # 将当前匹配的实体添加到全局去重集合中
+        global_matched_entities.update(matched_entities)
+        question_match_kg.append([kg_entity, list(matched_entities)])
+
+    print('match_kg', match_kg, "\n")
+    return match_kg, question_match_kg
 
 
 def get_related_title_label(question_match_kg):
@@ -200,32 +258,32 @@ def get_related_title_label(question_match_kg):
 
     for question_match_entity in question_match_kg:
         question_entity = question_match_entity[0]
-        match_entity = question_match_entity[1]
-        with driver.session() as session:
-            result = session.run(
-                "MATCH (n) "
-                "WHERE n.name = $entity_name "
-                "RETURN n.label AS label",
-                entity_name=match_entity
-            )
-            label = result.single()
-            label = label["label"] if label else None
-
-            if label == "标题":
-                title = match_entity
-                titles.append([match_entity, title])
-                question_entity_titles.append([question_entity, match_entity ,title])
-            else:
+        for match_entity in question_match_entity[1]:
+            with driver.session() as session:
                 result = session.run(
-                    "MATCH (n)-[r]-(m) "
-                    "WHERE n.name = $entity_name AND m.label = '标题' "
-                    "RETURN m.name AS name",
+                    "MATCH (n) "
+                    "WHERE n.name = $entity_name "
+                    "RETURN n.label AS label",
                     entity_name=match_entity
                 )
-                neighbors = [record["name"] for record in result]
-                for title in neighbors:
+                label = result.single()
+                label = label["label"] if label else None
+
+                if label == "标题":
+                    title = match_entity
                     titles.append([match_entity, title])
-                    question_entity_titles.append([question_entity, match_entity, title])
+                    question_entity_titles.append([question_entity, match_entity ,title])
+                else:
+                    result = session.run(
+                        "MATCH (n)-[r]-(m) "
+                        "WHERE n.name = $entity_name AND m.label = '标题' "
+                        "RETURN m.name AS name",
+                        entity_name=match_entity
+                    )
+                    neighbors = [record["name"] for record in result]
+                    for title in neighbors:
+                        titles.append([match_entity, title])
+                        question_entity_titles.append([question_entity, match_entity, title])
 
     return titles, question_entity_titles
 
@@ -385,7 +443,7 @@ def prompt_path_finding(path_input):
     return []  # 默认返回空列表
 
 
-def get_most_relevant_paths(x, keywords, paths, top_k=5, min_similarity=0.1):
+def get_most_relevant_paths(x, keywords, paths, top_k=5, min_similarity=0.4):
     """
     计算提取的关键词列表与每条路径的相似度，选择最相关的 top_k 条路径。
 
@@ -399,7 +457,7 @@ def get_most_relevant_paths(x, keywords, paths, top_k=5, min_similarity=0.1):
     - 最相关的 top_k 条路径及其相似度得分（满足最小相似度条件）
     """
     # 将关键词列表转换为字符串
-    keyword_string = ' '.join(keywords)
+    keyword_string = keywords
 
     # 将每条路径转换为字符串
     processed_paths = [' '.join(path) for path in paths]
@@ -432,7 +490,58 @@ def get_most_relevant_paths(x, keywords, paths, top_k=5, min_similarity=0.1):
     return top_paths
 
 
-def path_exploration_and_aggregation(match_kg, question_kg):
+def merge_paths(path_list):
+    """
+    合并路径，只要尾部节点与首部节点相同就合并路径，且不受路径顺序的影响。
+    """
+    print(f"开始合并路径")
+    merged_paths = []
+
+    # 先创建一个字典，存储路径的起点和终点
+    start_to_paths = {}
+    end_to_paths = {}
+
+    for path in path_list:
+        start_node = path[0]  # 路径的起点
+        end_node = path[-1]  # 路径的终点
+
+        # 存储路径的起点和终点
+        if start_node not in start_to_paths:
+            start_to_paths[start_node] = []
+        if end_node not in end_to_paths:
+            end_to_paths[end_node] = []
+
+        start_to_paths[start_node].append(path)
+        end_to_paths[end_node].append(path)
+
+    visited = set()  # 用来记录已合并的路径，避免重复合并
+
+    # 遍历路径，尝试合并
+    for path in path_list:
+        if tuple(path) in visited:
+            continue
+
+        # 当前路径
+        current_path = path
+        visited.add(tuple(path))
+
+        # 找到能连接的路径，继续合并
+        while current_path[-1] in start_to_paths:
+            next_paths = start_to_paths[current_path[-1]]
+
+            for next_path in next_paths:
+                if next_path[0] == current_path[-1]:  # 如果路径的终点和下一个路径的起点相同
+                    current_path += next_path[1:]  # 合并路径
+                    visited.add(tuple(next_path))  # 标记路径已合并
+                    break  # 继续寻找合并路径
+
+        merged_paths.append(current_path)
+
+
+    return merged_paths
+
+
+def path_exploration_and_aggregation(match_kg, question):
     """
     查找并生成自身路径的函数。
 
@@ -446,91 +555,70 @@ def path_exploration_and_aggregation(match_kg, question_kg):
     print("\n==========6 路径子图探索===========")
     result_path_list = []
 
-    # 处理当 match_kg 中的实体数量大于 1 的情况
-    if len(match_kg) > 1:
-        start_entity = match_kg[0]
-        candidate_entity = match_kg[1:]
-        # 迭代查找路径
-        while True:
-            flag = 0
-            paths_list = []
+    # 遍历 match_kg 中的每一组实体
+    for i in range(len(match_kg) - 1):  # 遍历每对相邻的组
+        group1 = match_kg[i]  # 组1
+        group2 = match_kg[i + 1]  # 组2
 
-            while candidate_entity:
-                end_entity = candidate_entity[0]
-                candidate_entity.remove(end_entity)
+        # 针对每个实体组合，查找路径
+        for entity1 in group1:
+            for entity2 in group2:
+                print(f"查找路径: {entity1} -> {entity2}")
 
-                # 查找从 start_entity 到 end_entity 的最短路径
-                paths, exist_entity = find_shortest_path(start_entity, end_entity, candidate_entity)
-                print(f"paths, exist_entity:{paths}---{exist_entity}")
-                # 如果找不到路径，更新起始节点并退出内层循环
-                if not paths or paths == ['']:
-                    flag = 1
-                    if not candidate_entity:
-                        flag = 0
-                    else:
-                        start_entity = candidate_entity[0]
-                        candidate_entity.remove(start_entity)
-                    break
-                # 将找到的路径转换为列表格式并存储
-                path_list = [p.split('->') for p in paths]
-                if path_list:
-                    paths_list.append(path_list)
-                if exist_entity:
-                    try:
-                        candidate_entity.remove(exist_entity)
-                    except ValueError:
-                        continue
-                start_entity = end_entity
+                # 查找从 entity1 到 entity2 的最短路径
+                paths, exist_entity = find_shortest_path(entity1, entity2, match_kg)
+                print(f"paths, exist_entity: {paths}---{exist_entity}")
 
-            # 合并所有找到的路径
-            result_path = combine_lists(*paths_list)
-            if result_path:
-                result_path_list.extend(result_path)
-                print(f"合并之后的个数：{len(result_path_list)}")
-            if flag == 1:
-                continue
-            else:
-                break
+                # 如果找到了路径，将路径转换为列表格式并存储
+                if paths and paths != ['']:
+                    path_list = [p.split('->') for p in paths]
+                    result_path_list.extend(path_list)
+    if result_path_list:
+        print(f"\n合并前有{len(result_path_list)}\n")
 
-        # 根据起始节点筛选路径
+        # 合并所有找到的路径
+        result_path_list = merge_paths(result_path_list)
+        print(f"合并后的路径条数：{len(result_path_list)}")
+
+    # 根据起始节点筛选路径
     start_entities = list(set([path[0] for path in result_path_list if path]))
-    # print(f"start_entities:{start_entities}")
     if not start_entities:
-        result_path, single_path = {}, {}
-    elif len(start_entities) == 1:
-        result_path = result_path_list[:5]
-        # result_path = get_most_relevant_paths(1, question_kg, result_path_list)
+        result_path = {}
     else:
-        # 根据起始节点的数量选择最多五条路径
-        result_path = []
-        if len(start_entities) >= 5:
-            for path in result_path_list:
-                if path[0] in start_entities:
-                    result_path.append(path)
-                    start_entities.remove(path[0])
-                if len(result_path) == 5:
-                    break
-        else:
-            count = 5 // len(start_entities)
-            remind = 5 % len(start_entities)
-            count_tmp = 0
-
-            for path in result_path_list:
-                if len(result_path) >= 5:
-                    break
-                if path[0] in start_entities:
-                    if count_tmp < count:
-                        result_path.append(path)
-                        count_tmp += 1
-                    else:
-                        start_entities.remove(path[0])
-                        count_tmp = 0
-                        if path[0] in start_entities:
-                            result_path.append(path)
-                            count_tmp += 1
-
-                    if len(start_entities) == 1:
-                        count += remind
+        result_path = get_most_relevant_paths(1,question,result_path_list,8,0.4)
+    # elif len(start_entities) == 1:
+    #     result_path = result_path_list[:8]
+    # else:
+    #     result_path = []
+    #     if len(start_entities) >= 8:
+    #         for path in result_path_list:
+    #             if path[0] in start_entities:
+    #                 result_path.append(path)
+    #                 start_entities.remove(path[0])
+    #             if len(result_path) == 5:
+    #                 break
+    #     else:
+    #         print(f"开始的实体类别有：{len(start_entities)}")
+    #         count = 5 // len(start_entities)
+    #         remind = 5 % len(start_entities)
+    #         count_tmp = 0
+    #
+    #         for path in result_path_list:
+    #             if len(result_path) >= 8:
+    #                 break
+    #             if path[0] in start_entities:
+    #                 if count_tmp < count:
+    #                     result_path.append(path)
+    #                     count_tmp += 1
+    #                 else:
+    #                     start_entities.remove(path[0])
+    #                     count_tmp = 0
+    #                     if path[0] in start_entities:
+    #                         result_path.append(path)
+    #                         count_tmp += 1
+    #
+    #                 if len(start_entities) == 1:
+    #                     count += remind
 
     # 生成最终的路径响应
     print("\n==========7 路径子图融合===========")
@@ -544,14 +632,7 @@ def path_exploration_and_aggregation(match_kg, question_kg):
     else:
         print(f"路径子图融合结果为空")
         response_of_KG_list_path = '{}'
-    # single_path = result_path_list[0] if result_path_list else {}
-    # # 生成单一路径的响应
-    # response_single_path = prompt_path_finding(single_path) if single_path else ""
-    # if response_single_path == 'feifa':
-    #     print(f"\n!!!!!!!!模型无法回答！！！！！\n")
-    #     response_single_path = ""
-    #
-    # print(f"response_single_path 完成")
+
     return response_of_KG_list_path
 
 
@@ -589,7 +670,6 @@ def prompt_neighbor(neighbor):
 
 
 def get_entity_neighbors(entity_name: str, disease_flag) -> List[List[str]]:
-    disease = []
     query = """
     MATCH (e:Entity)-[r]-(n)
     WHERE e.name = $entity_name
@@ -607,15 +687,11 @@ def get_entity_neighbors(entity_name: str, disease_flag) -> List[List[str]]:
 
         neighbors = record["neighbor_entities"]
 
-        if "disease" in rel_type.replace("_", " "):
-            disease.extend(neighbors)
-
-        else:
-            neighbor_list.append([entity_name.replace("_", " "), rel_type.replace("_", " "),
+        neighbor_list.append([entity_name.replace("_", " "), rel_type.replace("_", " "),
                                   ','.join([x.replace("_", " ") for x in neighbors])
                                   ])
 
-    return neighbor_list, disease
+    return neighbor_list
 
 
 def neighbor_exploration_and_aggregation(match_kg, question_kg):
@@ -634,34 +710,17 @@ def neighbor_exploration_and_aggregation(match_kg, question_kg):
     neighbor_list_disease = []
 
     # 获取与匹配实体相关的邻居实体
-    for match_entity in match_kg:
-        neighbors, disease = get_entity_neighbors(match_entity, disease_flag=0)
-        neighbor_list.extend(neighbors)
-
-        # 处理与疾病相关的邻居
-        while disease:
-            # 查找在 match_kg 中存在的疾病
-            new_disease = [d for d in disease if d in match_kg]
-
-            if new_disease:
-                # 如果找到在 match_kg 中的疾病，获取其邻居
-                for disease_entity in new_disease:
-                    neighbors, disease = get_entity_neighbors(disease_entity, disease_flag=1)
-                    neighbor_list_disease.extend(neighbors)
-            else:
-                # 处理所有其他疾病实体
-                for disease_entity in disease:
-                    neighbors, disease = get_entity_neighbors(disease_entity, disease_flag=1)
-                    neighbor_list_disease.extend(neighbors)
-
-    # 合并所有邻居实体
-    neighbor_list.extend(neighbor_list_disease)
+    for match_group in match_kg:  # match_kg 现在是嵌套的列表，遍历每个子列表
+        for match_entity in match_group:  # 遍历每个子列表中的实体
+            print(f"正在处理：{match_entity}")
+            neighbors = get_entity_neighbors(match_entity, disease_flag=0)
+            neighbor_list.extend(neighbors)
     print(f"检索到的邻居路径条数：{len(neighbor_list)}")
 
     # 如果检索到的邻居列表不为空，根据相似度筛选最相关的邻居路径
     if neighbor_list:
-        neighbor_list = neighbor_list[:5]
-        # neighbor_list = get_most_relevant_paths(1, question_kg, neighbor_list)
+        # neighbor_list = neighbor_list[:10]
+        neighbor_list = get_most_relevant_paths(1, question_kg, neighbor_list)
         print("选取相似度之后的neighbor_list", neighbor_list, "\n")
     else:
         print("没有找到邻居子图")
@@ -690,9 +749,9 @@ def final_answer(input_text, response_of_KG_list_path, response_of_KG_neighbor, 
 
     # 模板字符串
     template = """
-        您是一位机器学习领域的专家AI，能够根据对话中的详细信息诊断技术问题，并推荐最佳的解决方法或模型。
+        您是一位自然语言处理领域的专家AI，能够根据对话中的详细信息诊断技术问题，并给出答案。
         用户输入: {input_text}
-        您可以访问以下相关知识资源，但请根据问题内容进行选择性参考，仅在必要时使用相关信息！！以确保回答的准确性和专业性：
+        您可以访问以下相关知识资源，如果没有合适的资源请不要参考！！请你再三思考，以确保回答的准确性和专业性。
         ### \n{response_of_KG_list_path}
         ### \n{response_of_KG_neighbor}
         请用中文回答，不换行。对于论文题目和专业词汇不需要翻译。
@@ -762,44 +821,17 @@ def generate(input_text):
     print("\n==========2 提取问题中的实体===========")
     start_time_0 = time.time()  # 请求发送的时间
     question_kg = get_question_entity(input_text)
-    if question_kg == []:
-        print("没有提取到实体")
-        answer = spark_4_0(input_text)
-        return [answer]
+    question_kg.append(input_text)
+    # if question_kg == []:
+    #     print("没有提取到实体")
+    #     answer = spark_4_0(input_text)
+    #     return [answer]
     print(f"question_kg:{question_kg}")
 
 
     # 3 函数计算所有实体嵌入与当前关键词嵌入之间的余弦相似度
     print("\n==========3 在知识图谱中匹配实体===========")
-
-    # 读取知识图谱中实体的embedding
-    with open('data/nlp/embedding/entity_embeddings_tfidf.pkl', 'rb') as f1:
-        entity_embeddings = pickle.load(f1)
-    entity_embeddings_emb = pd.DataFrame(entity_embeddings["embeddings"])
-    print(f"加载完毕，共有{len(entity_embeddings_emb)}")
-
-    # 从加载的数据中提取向量化器
-    vectorizer = entity_embeddings["vectorizer"]
-
-    match_kg = []
-    question_match_kg = [] # 其实kg就是实体们，在mindmap的叙事语言中抽象成了知识图谱
-
-    for kg_entity in question_kg:
-        # 使用加载的 TfidfVectorizer 对输入实体进行编码
-        query_embedding = vectorizer.transform([kg_entity])
-        cos_similarities = cosine_similarity(query_embedding, entity_embeddings["embeddings"]).flatten()
-        max_index = cos_similarities.argmax()
-        print(max_index, entity_embeddings["entities"][max_index])
-
-        match_kg_i = entity_embeddings["entities"][max_index]
-        while match_kg_i in match_kg:
-            cos_similarities[max_index] = 0
-            max_index = cos_similarities.argmax()
-            match_kg_i = entity_embeddings["entities"][max_index]
-
-        match_kg_i = match_kg_i.split(':')[0]
-        match_kg.append(match_kg_i)
-        question_match_kg.append([kg_entity, match_kg_i])
+    match_kg, question_match_kg = get_sim_entity(question_kg)
     print('question_match_kg', question_match_kg)
 
 
@@ -809,18 +841,18 @@ def generate(input_text):
     print(question_entity_titles)
 
 
-    # 5 户的所有相关论文标题的知识图谱
+    # 5 获得所有相关论文标题的知识图谱
     graphs = get_titles_graph(titles)
     print(graphs)
 
 
     # 6、7 路径子图探索和融合
-    response_of_KG_list_path = path_exploration_and_aggregation(match_kg, question_kg)
+    response_of_KG_list_path = path_exploration_and_aggregation(match_kg, input_text)
 
 
     # 8、9 邻居子图探索和融合
     # TODO:不要筛选路径只剩下5条
-    response_of_KG_neighbor = neighbor_exploration_and_aggregation(match_kg, question_kg)
+    response_of_KG_neighbor = neighbor_exploration_and_aggregation(match_kg, input_text)
 
 
     # 记录路径生成的总时间
@@ -849,8 +881,6 @@ def main():
         return ['']
     print('\nQuestion:', question)
 
-    # 初始化翻译器
-    translator = Translator(from_lang="zh", to_lang="en")
     # 检查是否包含中文字符
     if re.search('[\u4e00-\u9fff]', question):
         # 如果包含中文字符，进行翻译
@@ -874,13 +904,27 @@ def main():
 
 if __name__ == "__main__":
     # 连接neo4j
-    uri = "bolt://127.0.0.1:7687"
+    uri = "bolt://10.43.108.62:7687"
     username = "neo4j"
     password = "12345678"
     driver = GraphDatabase.driver(uri, auth=(username, password))
     session = driver.session()
-    print("\n成功连接neo4j\n")
+    print("\n成功连接neo4j")
+
+    # 初始化翻译器
+    print("\n提前初始化翻译器")
+    translator = Translator(from_lang="zh", to_lang="en")
+
+    print("\n提前加载实体嵌入")
+    # 读取知识图谱中实体的embedding
+    with open('data/nlp/embedding/entity_embeddings_tfidf.pkl', 'rb') as f1:
+        entity_embeddings = pickle.load(f1)
+    entity_embeddings_emb = pd.DataFrame(entity_embeddings["embeddings"])
+    print(f"加载完毕，共有{len(entity_embeddings_emb)}")
+    # 从加载的数据中提取向量化器
+    vectorizer = entity_embeddings["vectorizer"]
 
     # 监听接口，生成并返回答案
+    print("\n开始接收请求")
     app.run(host='0.0.0.0', port=5002)
     main()

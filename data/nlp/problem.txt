@@ -1,3 +1,6 @@
 A Multi-Platform Arabic News Comment Dataset for Offensive Language Detection:标题	belongs to	Natural language processing and sentiment analysis'
 Inverse Document Density: A Smooth Measure for Location-Dependent Term Irregularities:标题	belongs to	Spatial text analysis'
 Automatic Linguistic Classification:标题	belongs to	computational linguistics'
+A Finite-State Approach to Translate SNOMED CT Terms into Basque Using Medical Prefixes and Suffixes:标题	belongs to	Natural Language Processing'
+Macquarie University at BioASQ 5b -- Query-based Summarisation Techniques for Selecting the Ideal Answers:标题	belongs to	Information Retrieval'
+Preferred Answer Selection in Stack Overflow: Better Text Representations ... and Metadata, Metadata, Metadata:标题	belongs to	Question answering'
