@@ -39,7 +39,7 @@ def spark_4_0(query, ip_port='10.43.108.62:8678'):
     }
     # 模板字符串
     template = """
-       question: {input_text}
+       {input_text}
        """
     text = template.format(input_text=query)
     # 准备数据

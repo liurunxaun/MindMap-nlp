@@ -176,7 +176,7 @@ def cosine_similarity_manual(x, y):
     return sim
 
 
-def get_sim_entity(question_kg):
+def get_similar_entity(question_kg):
     match_kg = []
     question_match_kg = []
     global_matched_entities = set()  # 全局去重的集合
@@ -299,6 +299,19 @@ def get_titles_graph(titles):
                 'nodes': [],
                 'edges': []
             }
+
+    #对标题去重
+    # 用于存储去重后的结果
+    unique_titles = []
+    # 用于跟踪已经出现过的 title
+    seen_titles = set()
+
+    for match_entity, title in titles:
+        if title not in seen_titles:
+            unique_titles.append([match_entity, title])
+            seen_titles.add(title)
+
+    titles = unique_titles
 
     with driver.session() as session:
         if len(titles) >= 3:
@@ -541,7 +554,7 @@ def merge_paths(path_list):
     return merged_paths
 
 
-def path_exploration_and_aggregation(match_kg, question):
+def path_exploration_and_aggregation(match_kg, question, time_4):
     """
     查找并生成自身路径的函数。
 
@@ -621,6 +634,10 @@ def path_exploration_and_aggregation(match_kg, question):
     #                     count += remind
 
     # 生成最终的路径响应
+
+    time_5 = time.time()
+    print(f"用时：{time_5 - time_4}")
+
     print("\n==========7 路径子图融合===========")
     if result_path:
         result_new_path = ["->".join(p) for p in result_path]
@@ -633,7 +650,10 @@ def path_exploration_and_aggregation(match_kg, question):
         print(f"路径子图融合结果为空")
         response_of_KG_list_path = '{}'
 
-    return response_of_KG_list_path
+    time_6 = time.time()
+    print(f"用时：{time_6 - time_5}")
+
+    return response_of_KG_list_path, time_6
 
 
 def prompt_neighbor(neighbor):
@@ -694,7 +714,7 @@ def get_entity_neighbors(entity_name: str, disease_flag) -> List[List[str]]:
     return neighbor_list
 
 
-def neighbor_exploration_and_aggregation(match_kg, question_kg):
+def neighbor_exploration_and_aggregation(match_kg, question_kg, time_6):
     """
     查找知识图谱中与匹配实体相关的邻居路径，并生成邻居路径的响应。
 
@@ -726,6 +746,9 @@ def neighbor_exploration_and_aggregation(match_kg, question_kg):
         print("没有找到邻居子图")
         return ""
 
+    time_7 = time.time()
+    print(f"用时：{time_7 - time_6}")
+
     print("\n============9 邻居子图融合 ===========")
     if len(neighbor_list) != 0:
         # 将筛选后的邻居路径转换为所需的输入格式
@@ -742,7 +765,10 @@ def neighbor_exploration_and_aggregation(match_kg, question_kg):
         print("邻居子图融合结果为空")
     print("邻居子图融合结果：\n", response_of_KG_neighbor)
 
-    return response_of_KG_neighbor
+    time_8 = time.time()
+    print(f"用时：{time_8 - time_7}")
+
+    return response_of_KG_neighbor, time_8
 
 
 def final_answer(input_text, response_of_KG_list_path, response_of_KG_neighbor, ip_port='10.43.108.62:8678'):
@@ -819,7 +845,7 @@ def generate(input_text):
 
     # 2 提取问题中的实体
     print("\n==========2 提取问题中的实体===========")
-    start_time_0 = time.time()  # 请求发送的时间
+    time_0 = time.time()  # 请求发送的时间
     question_kg = get_question_entity(input_text)
     question_kg.append(input_text)
     # if question_kg == []:
@@ -827,48 +853,55 @@ def generate(input_text):
     #     answer = spark_4_0(input_text)
     #     return [answer]
     print(f"question_kg:{question_kg}")
+    time_1 = time.time()
+    print(f"用时：{time_1 - time_0}")
 
 
     # 3 函数计算所有实体嵌入与当前关键词嵌入之间的余弦相似度
     print("\n==========3 在知识图谱中匹配实体===========")
-    match_kg, question_match_kg = get_sim_entity(question_kg)
+    match_kg, question_match_kg = get_similar_entity(question_kg)
     print('question_match_kg', question_match_kg)
+    time_2 = time.time()
+    print(f"用时：{time_2 - time_1}")
 
 
     # 4 获得所有相关论文标题
     titles, question_entity_titles = get_related_title_label(question_match_kg)
     print("问题实体匹配实体所有相关论文标题:")
     print(question_entity_titles)
+    time_3 = time.time()
+    print(f"用时：{time_3 - time_2}")
 
 
     # 5 获得所有相关论文标题的知识图谱
     graphs = get_titles_graph(titles)
     print(graphs)
+    time_4 = time.time()
+    print(f"用时：{time_4 - time_3}")
 
 
     # 6、7 路径子图探索和融合
-    response_of_KG_list_path = path_exploration_and_aggregation(match_kg, input_text)
+    response_of_KG_list_path, time_6 = path_exploration_and_aggregation(match_kg, input_text, time_4)
 
 
     # 8、9 邻居子图探索和融合
     # TODO:不要筛选路径只剩下5条
-    response_of_KG_neighbor = neighbor_exploration_and_aggregation(match_kg, input_text)
-
-
-    # 记录路径生成的总时间
-    path_response_time = time.time() - start_time_0
-    print(f"\npath_time:{path_response_time}")
+    response_of_KG_neighbor, time_8 = neighbor_exploration_and_aggregation(match_kg, input_text, time_6)
 
 
     # 10 生成答案
     print("\n==========10 生成答案========")
     mindmap_res, mindmap_time = final_answer(input_text, response_of_KG_list_path, response_of_KG_neighbor)
-    print(f"答案和耗时：\n{mindmap_res}\n{mindmap_time}")
+    print(f"答案：\n{mindmap_res}")
+    time_9 = time.time()
+    print(f"用时：{time_9 - time_8}")
+    print(f"总耗时：{time_9 - time_0}")
     if mindmap_res == None:
         print(f"模型无法回答")
         return ["模型无法回答"]
     else:
         return [mindmap_res, question_entity_titles, graphs]
+
 
 
 @app.route('/process-data', methods=['POST'])
